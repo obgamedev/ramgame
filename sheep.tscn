@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/sheep.gd" type="Script" id=1]
-[ext_resource path="res://assets/ram_bab.png" type="Texture" id=2]
+[ext_resource path="res://assets/ramMaterial.tres" type="Material" id=2]
 [ext_resource path="res://assets/Material_001.material" type="Material" id=3]
 
 [sub_resource type="ArrayMesh" id=1]
@@ -20,10 +20,7 @@ surfaces/0 = {
 "vertex_count": 372
 }
 
-[sub_resource type="SpatialMaterial" id=2]
-albedo_texture = ExtResource( 2 )
-
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 1.04167
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature002")
@@ -117,7 +114,7 @@ tracks/12/imported = true
 tracks/12/enabled = true
 tracks/12/keys = PoolRealArray( 0, 1, 2.98023e-08, 0, 2.38419e-07, 0.181729, 0.0314725, -0.0511427, 0.981513, 1, 1, 1, 0.0416667, 1, 2.98023e-08, 0, 2.38419e-07, 0.181729, 0.0314725, -0.0511427, 0.981513, 1, 1, 1, 0.25, 1, 2.98023e-08, 2.38419e-07, 2.38419e-07, 0.0355518, -0.0386949, -0.0626836, 0.996649, 1, 1, 1, 0.458333, 1, 2.98023e-08, 2.38419e-07, 2.38419e-07, -0.111573, -0.107831, -0.0725538, 0.985221, 1, 1, 1, 0.791667, 1, 2.98023e-08, 0, 2.38419e-07, 0.0454578, -0.0339867, -0.0619565, 0.996464, 1, 1, 1, 1.04167, 1, 2.98023e-08, 0, 2.98023e-07, 0.162712, 0.0222591, -0.0527441, 0.985011, 1, 1, 1 )
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=3]
 
 [node name="sheep" type="RigidBody"]
 collision_layer = 4
@@ -191,14 +188,14 @@ bones/11/bound_children = [  ]
 
 [node name="Cube011" type="MeshInstance" parent="Armature002/Skeleton"]
 mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+material/0 = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/default = SubResource( 3 )
+anims/default = SubResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.44483, 0.883497 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Area" type="Area" parent="."]
 transform = Transform( 1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0 )
@@ -207,5 +204,5 @@ collision_mask = 2
 
 [node name="CollisionShape2" type="CollisionShape" parent="Area"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.44483, 0.883497 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

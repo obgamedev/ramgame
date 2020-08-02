@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/ram.gd" type="Script" id=1]
 [ext_resource path="res://assets/Material_001.material" type="Material" id=2]
-[ext_resource path="res://assets/ram_bab.png" type="Texture" id=3]
+[ext_resource path="res://assets/ramMaterial.tres" type="Material" id=3]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Cube.016"
@@ -19,9 +19,6 @@ surfaces/0 = {
 "skeleton_aabb": [ AABB( -1.80572, 1.1127, -1.91278, 3.36484, 3.2956, 4.3975 ), AABB( -2.8472, 1.90865, -0.749507, 5.6944, 4.25284, 5.65557 ), AABB( 6.82183e-07, 2.88994, 0.424954, 2.8472, 3.27156, 4.24965 ), AABB( -2.76475, 1.90865, 0.379812, 2.76475, 4.25284, 4.29479 ), AABB( -0.825973, 0.759076, -0.80979, 3.42082, 5.40242, 5.48439 ), AABB( 0.672922, -0.0565209, 0.632647, 0.729539, 1.1434, 0.893499 ), AABB( -2.76475, 0.759076, -1.2883, 3.60869, 5.40242, 5.9629 ), AABB( -1.40246, -0.0565209, 0.632647, 0.729549, 1.1434, 0.893499 ), AABB( 0.215085, 0.46542, -1.91278, 1.34403, 2.10452, 2.14396 ), AABB( 0.522861, -0.0565209, -1.73457, 1.00848, 2.30874, 1.20918 ), AABB( -1.80572, 0.46542, -1.91278, 2.02081, 2.98803, 2.15824 ), AABB( -1.53134, -0.0565209, -1.73457, 1.00848, 2.30874, 1.20918 ) ],
 "vertex_count": 436
 }
-
-[sub_resource type="SpatialMaterial" id=2]
-albedo_texture = ExtResource( 3 )
 
 [sub_resource type="Animation" id=3]
 length = 1.04167
@@ -193,7 +190,7 @@ bones/11/bound_children = [  ]
 
 [node name="Cube016" type="MeshInstance" parent="Armature001/Skeleton"]
 mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+material/0 = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/default = SubResource( 3 )
