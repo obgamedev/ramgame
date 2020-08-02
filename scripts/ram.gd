@@ -1,52 +1,62 @@
 extends KinematicBody
 
 var velocity = Vector3(0, 0, 0)
-const SPEED = 20
-const GRAVITY = 0.1
-const MOUSE_SENSITIVITY = 0.7
-const TIMER = 1
-var timeRemaining = 0
+var gravity = -9.8
+var camera
 
+const SPEED = 30
+const ACCELERATION = 2
+
+onready var smokeParticles = get_node("Armature001/Skeleton/BodyBone/CPUParticles")
 onready var animationPlayer = get_node("AnimationPlayer")
-
-func _ready():
-	# lock mouse inside game window
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
-func _input(event):
-	# move camera horizontally
-	if event is InputEventMouseMotion :
-		rotate_y(deg2rad(-event.relative.x * MOUSE_SENSITIVITY))
 
 func _physics_process(delta):
 	
-	# set up the xz plane movement
-	velocity.x = 0
-	velocity.z = 0
-	var dx = int(Input.is_key_pressed(KEY_D)) - int(Input.is_key_pressed(KEY_A))
-	var dz = int(Input.is_key_pressed(KEY_S)) - int(Input.is_key_pressed(KEY_W))
-	velocity -= dx * transform.basis.x * SPEED
-	velocity -= dz * transform.basis.z * SPEED
+	camera = get_node("Target/Camera").get_global_transform()
 	
-	# gravity effect
-	velocity.y -= GRAVITY
+	# set up the xz plane movement (relevant to the camera)
+	var dir = Vector3()
+	if Input.is_key_pressed(KEY_W) : 
+		dir -= camera.basis[2]
+	if Input.is_key_pressed(KEY_S) : 
+		dir += camera.basis[2]
+	if Input.is_key_pressed(KEY_A) : 
+		dir -= camera.basis[0]
+	if Input.is_key_pressed(KEY_D) : 
+		dir += camera.basis[0]
+	dir.y = 0
+	dir = dir.normalized()
+	var hv = velocity
+	hv.y = 0
 	
-	# movement
+	var new_pos = dir * SPEED
+	
+	hv = hv.linear_interpolate(new_pos, ACCELERATION * delta)
+	
+	velocity.x = hv.x
+	velocity.z = hv.z
+	
 	velocity = move_and_slide(velocity, Vector3.UP)
 	
-	# animation
-	if dx != 0 or dz != 0 :
-		animationPlayer.play("default")
-	else :
-		animationPlayer.stop()
+	# rotation
+	if velocity.x != 0 or velocity.z != 0 :
+		rotation.y = atan2(hv.x, hv.z)
 	
-	# dynamic camera
-	if timeRemaining >= 0 :
-		timeRemaining -= delta
-		if timeRemaining <= 0 :
-			timeRemaining = 0
-			get_node("Pivot/Camera").current = true
-
-func _on_Area_body_entered(body):
-	get_node("Pivot/DynamicCamera").current = true
-	timeRemaining = TIMER
+	# animation
+	var currentAnimation
+	if dir.x != 0 or dir.z != 0 :
+		currentAnimation = "Dashing"
+	else : 
+		currentAnimation = "Still"
+	
+	if animationPlayer.current_animation != currentAnimation :
+		animationPlayer.play(currentAnimation)
+	
+	if animationPlayer.current_animation == "Dashing" :
+		animationPlayer.playback_speed = hv.length() / SPEED
+	
+	# particles
+	if hv.length() <= SPEED / 3 :
+		smokeParticles.emitting = false
+	else :
+		smokeParticles.emitting = true

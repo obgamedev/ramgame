@@ -1,5 +1,8 @@
 extends RigidBody
 
+func _ready():
+	get_node("AnimationPlayer").play("Still")
+
 # fly away
 func _on_Area_body_entered(body):
 	var dir = Vector3(sign(global_transform.origin.x - body.global_transform.origin.x), 1, sign(global_transform.origin.z - body.global_transform.origin.z))
@@ -7,4 +10,4 @@ func _on_Area_body_entered(body):
 	apply_torque_impulse(dir)
 
 func _physics_process(delta):
-	get_node("AnimationPlayer").play("default")
+	pass
