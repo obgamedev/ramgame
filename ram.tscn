@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/ram.gd" type="Script" id=1]
 [ext_resource path="res://assets/Material_001.material" type="Material" id=2]
@@ -120,6 +120,8 @@ tracks/12/keys = PoolRealArray( 0, 1, 0, 0, 2.98023e-07, 0.181729, 0.0314725, -0
 
 [sub_resource type="BoxShape" id=4]
 
+[sub_resource type="BoxShape" id=5]
+
 [node name="ram" type="KinematicBody"]
 collision_layer = 2
 collision_mask = 7
@@ -204,3 +206,15 @@ shape = SubResource( 4 )
 
 [node name="Camera" type="Camera" parent="Pivot"]
 transform = Transform( -1, 5.68434e-14, -3.25841e-07, -1.53184e-07, 0.882603, 0.470119, 2.87589e-07, 0.470119, -0.882603, 0, 7.87638, -6.29849 )
+
+[node name="DynamicCamera" type="Camera" parent="Pivot"]
+transform = Transform( 0.831369, -0.24103, 0.500729, -0.0239726, 0.884652, 0.465636, -0.555203, -0.399119, 0.729694, 4.07876, 10.2217, 12.2369 )
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 3.47239, 2.00729 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 5 )
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

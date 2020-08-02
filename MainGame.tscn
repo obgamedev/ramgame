@@ -1,42 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ram.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Ball.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sheep.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fence.tscn" type="PackedScene" id=5]
 
 [node name="Spatial" type="Spatial"]
-
-[node name="Ball" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2, 3 )
-
-[node name="Ball2" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 3 )
-
-[node name="Ball3" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 6 )
-
-[node name="Ball4" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -6 )
-
-[node name="Ball5" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -8 )
-
-[node name="Ball6" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2, -6 )
-
-[node name="Ball7" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58536, 5.66933, -6 )
-
-[node name="Ball8" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0202088, 5.66933, -5.1508 )
-
-[node name="Ball9" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0202088, 5.66933, 5.14249 )
-
-[node name="Ball10" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.81059, 9.57194, 1.48137 )
 
 [node name="ram" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
