@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scripts/ram.gd" type="Script" id=1]
 [ext_resource path="res://assets/Material_001.material" type="Material" id=2]
@@ -885,6 +885,24 @@ tracks/12/imported = true
 tracks/12/enabled = true
 tracks/12/keys = PoolRealArray( 0, 1, 0, 0, 2.98023e-07, 0.181729, 0.0314725, -0.0511427, 0.981513, 1, 1, 1, 0.2, 1, 0, 0, 2.98023e-07, 0.041494, -0.0358714, -0.0622484, 0.996552, 1, 1, 1, 0.4, 1, 0, 0, 2.98023e-07, -0.100011, -0.102452, -0.0718415, 0.987087, 1, 1, 1, 0.466667, 1, 0, 0, 2.98023e-07, -0.0884451, -0.0970615, -0.071118, 0.988787, 1, 1, 1, 0.8, 1, 0, 0, 2.98023e-07, 0.0691904, -0.0226795, -0.0601824, 0.995528, 1, 1, 1, 1, 1, 0, 0, 2.98023e-07, 0.162712, 0.0222591, -0.0527441, 0.985011, 1, 1, 1, 1.06667, 1, 0, 0, 2.98023e-07, 0.181729, 0.0314725, -0.0511427, 0.981513, 1, 1, 1, 1.125, 1, 0, 0, 2.98023e-07, 0.181729, 0.0314725, -0.0511427, 0.981513, 1, 1, 1 )
 
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "Dashing"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "Still"
+
+[sub_resource type="AnimationNodeBlend2" id=17]
+
+[sub_resource type="AnimationNodeBlendTree" id=18]
+graph_offset = Vector2( -430, 115.75 )
+nodes/Animation/node = SubResource( 16 )
+nodes/Animation/position = Vector2( -120, 100 )
+"nodes/Animation 2/node" = SubResource( 15 )
+"nodes/Animation 2/position" = Vector2( -120, 200 )
+nodes/my_blend/node = SubResource( 17 )
+nodes/my_blend/position = Vector2( 100, 120 )
+node_connections = [ "output", 0, "my_blend", "my_blend", 0, "Animation", "my_blend", 1, "Animation 2" ]
+
 [node name="ram" type="KinematicBody"]
 collision_layer = 2
 collision_mask = 7
@@ -902,7 +920,7 @@ bones/1/name = "head"
 bones/1/parent = 0
 bones/1/rest = Transform( -1, -6.97154e-07, -3.62206e-07, 7.25316e-07, -0.642098, -0.766623, 3.01883e-07, -0.766623, 0.642097, -5.36984e-07, -0.876098, -2.81869 )
 bones/1/enabled = true
-bones/1/bound_children = [ NodePath("HedBone"), NodePath("BodyBone") ]
+bones/1/bound_children = [  ]
 bones/2/name = "Bone.002_L.001"
 bones/2/parent = 1
 bones/2/rest = Transform( -0.715999, 0.146647, 0.682524, 0.362483, 0.913656, 0.183953, -0.596616, 0.379114, -0.707334, -1.19835, -0.131871, -0.238725 )
@@ -959,7 +977,7 @@ mesh = SubResource( 1 )
 material/0 = ExtResource( 3 )
 
 [node name="HedBone" type="BoneAttachment" parent="Armature001/Skeleton"]
-transform = Transform( -1, -3.9598e-07, 1.14596e-07, 6.22187e-11, 0.277848, 0.960625, -4.12228e-07, 0.960625, -0.277847, -9.27877e-08, 3.02842, 2.49493 )
+transform = Transform( -1, -3.96014e-07, 1.14616e-07, -2.46129e-07, 0.79651, 0.604625, -3.30733e-07, 0.604625, -0.796509, -4.4002e-08, 3.32127, 1.32428 )
 bone_name = "head"
 
 [node name="CPUParticles" type="CPUParticles" parent="Armature001/Skeleton/HedBone"]
@@ -991,7 +1009,7 @@ scale_amount = 0.16
 color = Color( 1, 0, 0, 1 )
 
 [node name="BodyBone" type="BoneAttachment" parent="Armature001/Skeleton"]
-transform = Transform( -1, -3.9598e-07, 1.14596e-07, 6.22187e-11, 0.277848, 0.960625, -4.12228e-07, 0.960625, -0.277847, -9.27877e-08, 3.02842, 2.49493 )
+transform = Transform( -1, -3.96014e-07, 1.14616e-07, -2.46129e-07, 0.79651, 0.604625, -3.30733e-07, 0.604625, -0.796509, -4.4002e-08, 3.32127, 1.32428 )
 bone_name = "head"
 
 [node name="CPUParticles" type="CPUParticles" parent="Armature001/Skeleton/BodyBone"]
@@ -1044,3 +1062,9 @@ anims/StruggleFlight = SubResource( 11 )
 anims/Walk = SubResource( 12 )
 anims/Walk.001 = SubResource( 13 )
 anims/Walk.003 = SubResource( 14 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 18 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/my_blend/blend_amount = 0.0

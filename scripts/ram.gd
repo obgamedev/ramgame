@@ -8,7 +8,7 @@ const SPEED = 30
 const ACCELERATION = 2
 
 onready var smokeParticles = get_node("Armature001/Skeleton/BodyBone/CPUParticles")
-onready var animationPlayer = get_node("AnimationPlayer")
+onready var animationTree = get_node("AnimationTree")
 
 func _physics_process(delta):
 	
@@ -49,11 +49,7 @@ func _physics_process(delta):
 	else : 
 		currentAnimation = "Still"
 	
-	if animationPlayer.current_animation != currentAnimation :
-		animationPlayer.play(currentAnimation)
-	
-	if animationPlayer.current_animation == "Dashing" :
-		animationPlayer.playback_speed = hv.length() / SPEED
+	animationTree.set("parameters/my_blend/blend_amount",  hv.length() / SPEED)
 	
 	# particles
 	if hv.length() <= SPEED / 3 :

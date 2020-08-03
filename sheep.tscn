@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/sheep.gd" type="Script" id=1]
 [ext_resource path="res://assets/ramMaterial.tres" type="Material" id=2]
@@ -588,6 +588,7 @@ tracks/12/keys = PoolRealArray( 0, 1, 0.170307, 2.38419e-07, -0.139408, -0.15639
 
 [sub_resource type="Animation" id=9]
 length = 1.125
+loop = true
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature002")
 tracks/0/interp = 1
@@ -776,6 +777,7 @@ tracks/12/keys = PoolRealArray( 0, 1, 2.98023e-08, 0, 2.38419e-07, 0.181729, 0.0
 
 [sub_resource type="Animation" id=11]
 length = 1.125
+loop = true
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature002")
 tracks/0/interp = 1
@@ -867,6 +869,25 @@ tracks/12/loop_wrap = true
 tracks/12/imported = true
 tracks/12/enabled = true
 tracks/12/keys = PoolRealArray( 0, 1, 2.98023e-08, 0, 2.38419e-07, 0.181729, 0.0314725, -0.0511427, 0.981513, 1, 1, 1, 0.2, 1, 2.98023e-08, 0, 2.38419e-07, 0.0414941, -0.0358714, -0.0622484, 0.996552, 1, 1, 1, 0.4, 1, 2.98023e-08, 0, 2.38419e-07, -0.100011, -0.102452, -0.0718415, 0.987087, 1, 1, 1, 0.466667, 1, 2.98023e-08, 0, 2.38419e-07, -0.088445, -0.0970615, -0.071118, 0.988787, 1, 1, 1, 0.8, 1, 2.98023e-08, 0, 2.38419e-07, 0.0691905, -0.0226795, -0.0601824, 0.995528, 1, 1, 1, 1, 1, 2.98023e-08, 0, 2.38419e-07, 0.162712, 0.0222591, -0.0527441, 0.985011, 1, 1, 1, 1.06667, 1, 2.98023e-08, 0, 2.38419e-07, 0.181729, 0.0314725, -0.0511427, 0.981513, 1, 1, 1, 1.125, 1, 2.98023e-08, 0, 2.38419e-07, 0.181729, 0.0314725, -0.0511427, 0.981513, 1, 1, 1 )
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "Walk"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Still"
+
+[sub_resource type="AnimationNodeBlend2" id=14]
+
+[sub_resource type="AnimationNodeBlendTree" id=15]
+graph_offset = Vector2( -368, 85.5 )
+nodes/Animation/node = SubResource( 13 )
+nodes/Animation/position = Vector2( -60, 100 )
+"nodes/Animation 2/node" = SubResource( 12 )
+"nodes/Animation 2/position" = Vector2( -60, 200 )
+nodes/my_blend/node = SubResource( 14 )
+nodes/my_blend/position = Vector2( 120, 120 )
+nodes/output/position = Vector2( 460, 160 )
+node_connections = [ "output", 0, "my_blend", "my_blend", 0, "Animation", "my_blend", 1, "Animation 2" ]
 
 [node name="sheep" type="RigidBody"]
 collision_layer = 4
@@ -965,4 +986,10 @@ anims/StruggleFlight = SubResource( 8 )
 anims/Walk = SubResource( 9 )
 anims/Walk.001 = SubResource( 10 )
 anims/Walk.003 = SubResource( 11 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 15 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/my_blend/blend_amount = 0.0
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
