@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ram.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Rat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sheep.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fence.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 20, 20, 20 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 40.8427, 1, 2.84285 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -32,3 +39,28 @@ shadow_enabled = true
 directional_shadow_split_1 = 0.171
 directional_shadow_split_2 = 0.573
 directional_shadow_split_3 = 1.0
+
+[node name="Rat" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.59241, 0.262341, -40.849 )
+
+[node name="Rat2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67247, 0.262341, -38.4717 )
+
+[node name="Rat3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5036, 0.262341, -40.849 )
+
+[node name="Barn" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.90987, 52.9816 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Barn"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="RatSpawner" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.3463, -40.3579 )
+
+[node name="Area" type="Area" parent="RatSpawner"]
+
+[node name="CollisionShape" type="CollisionShape" parent="RatSpawner/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.37852 )
+shape = SubResource( 2 )
