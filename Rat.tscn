@@ -305,6 +305,8 @@ extents = Vector3( 1.37902, 0.906418, 2.20608 )
 extents = Vector3( 1.2786, 0.658391, 1.73782 )
 
 [node name="Rat" type="RigidBody"]
+collision_layer = 4
+collision_mask = 7
 mass = 0.204082
 script = ExtResource( 3 )
 
