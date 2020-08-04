@@ -3,6 +3,7 @@ extends KinematicBody
 var velocity = Vector3(0, 0, 0)
 var gravity = -9.8
 var camera
+var currentAnimation
 
 const SPEED = 30
 const ACCELERATION = 2
@@ -12,6 +13,10 @@ onready var smokeParticles = get_node("Armature001/Skeleton/BodyBone/CPUParticle
 onready var animationTree = get_node("AnimationTree")
 
 func _physics_process(delta):
+	#CW: terrible coooode ahead! its a restart button
+	if Input.is_action_just_pressed("ui_end"):
+		get_tree().reload_current_scene()
+	#bad code ends here
 	
 	camera = get_node("Target/Camera").get_global_transform()
 	
@@ -60,7 +65,6 @@ func _physics_process(delta):
 				rotation.y -= 0.01
 	
 	# animation
-	var currentAnimation
 	if dir.x != 0 or dir.z != 0 :
 		currentAnimation = "Dashing"
 	else : 
@@ -73,3 +77,12 @@ func _physics_process(delta):
 		smokeParticles.emitting = false
 	else :
 		smokeParticles.emitting = true
+		
+	#ramming anim. does not work!! required a named node, but we are generating rats!
+	
+	var rat = get_tree().get_root().find_node("Rat?",true,false)
+	if !rat == null:
+		rat.connect("rathit",self,"ram")
+
+func ram():
+	currentAnimation = "BadHit"

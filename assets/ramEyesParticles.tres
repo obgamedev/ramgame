@@ -1,9 +1,6 @@
 [gd_resource type="QuadMesh" load_steps=2 format=2]
 
-[sub_resource type="SpatialMaterial" id=1]
-params_billboard_mode = 1
-albedo_color = Color( 1, 0, 0, 1 )
+[ext_resource path="res://assets/RamEyeParticles.tres" type="Material" id=1]
 
 [resource]
-material = SubResource( 1 )
-size = Vector2( 0.5, 0.5 )
+material = ExtResource( 1 )
