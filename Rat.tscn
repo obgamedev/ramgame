@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/RatMaterial.tres" type="Material" id=1]
 [ext_resource path="res://assets/Material_002.material" type="Material" id=2]
 [ext_resource path="res://scripts/Rat.gd" type="Script" id=3]
-[ext_resource path="res://assets/ramEyesParticles.tres" type="QuadMesh" id=4]
+[ext_resource path="res://assets/WhiteParticles.tres" type="Material" id=4]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Cube.018"
@@ -20,6 +20,9 @@ surfaces/0 = {
 "skeleton_aabb": [ AABB( -1.41019, -0.137464, -0.792434, 2.82038, 1.62841, 2.28881 ), AABB( -1.12595, 0.00724319, -2.12202, 2.25191, 1.4837, 2.5463 ), AABB( -0.183235, 0.339023, -5.38576, 0.366471, 0.258384, 3.26375 ), AABB( -2.6693e-14, 0.434794, -5.38576, 1e-05, 1e-05, 1e-05 ), AABB( -1.41019, -0.12198, -0.426273, 2.82038, 1.61293, 2.36731 ) ],
 "vertex_count": 212
 }
+
+[sub_resource type="QuadMesh" id=10]
+material = ExtResource( 4 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "MiceBWalkin"
@@ -355,7 +358,7 @@ one_shot = true
 explosiveness = 1.0
 randomness = 0.39
 local_coords = false
-mesh = ExtResource( 4 )
+mesh = SubResource( 10 )
 emission_shape = 1
 emission_sphere_radius = 1.5
 direction = Vector3( 0, 0, 0 )

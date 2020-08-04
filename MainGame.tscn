@@ -48,7 +48,7 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="RatSpawner" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.3463, -40.3579 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96608, -44.0086 )
 
 [node name="Area" type="Area" parent="RatSpawner"]
 

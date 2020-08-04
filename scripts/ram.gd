@@ -77,7 +77,10 @@ func _physics_process(delta):
 		smokeParticles.emitting = false
 	else :
 		smokeParticles.emitting = true
-		
+	#particles get smaller with time. WELL, THEY SHOULD!!!!!
+	var mesh = smokeParticles.mesh 
+	mesh.size -= Vector2(delta, delta)
+	
 	#ramming anim. does not work!! required a named node, but we are generating rats!
 	
 	var rat = get_tree().get_root().find_node("Rat?",true,false)
