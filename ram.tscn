@@ -978,7 +978,7 @@ mesh = SubResource( 1 )
 material/0 = ExtResource( 3 )
 
 [node name="HedBone" type="BoneAttachment" parent="Armature001/Skeleton"]
-transform = Transform( -1, -3.91207e-07, 1.11589e-07, -2.47295e-07, 0.802373, 0.596823, -3.23018e-07, 0.596823, -0.802372, -7.66238e-08, 3.62163, 1.3118 )
+transform = Transform( -1, -3.98658e-07, 1.16277e-07, -2.49478e-07, 0.800573, 0.599236, -3.31978e-07, 0.599236, -0.800572, -9.6715e-08, 3.65366, 1.31652 )
 bone_name = "head"
 
 [node name="CPUParticles" type="CPUParticles" parent="Armature001/Skeleton/HedBone"]
@@ -1010,7 +1010,7 @@ scale_amount = 0.16
 color = Color( 1, 0, 0, 1 )
 
 [node name="BodyBone" type="BoneAttachment" parent="Armature001/Skeleton"]
-transform = Transform( -1, -3.91207e-07, 1.11589e-07, -2.47295e-07, 0.802373, 0.596823, -3.23018e-07, 0.596823, -0.802372, -7.66238e-08, 3.62163, 1.3118 )
+transform = Transform( -1, -3.98658e-07, 1.16277e-07, -2.49478e-07, 0.800573, 0.599236, -3.31978e-07, 0.599236, -0.800572, -9.6715e-08, 3.65366, 1.31652 )
 bone_name = "head"
 
 [node name="CPUParticles" type="CPUParticles" parent="Armature001/Skeleton/BodyBone"]

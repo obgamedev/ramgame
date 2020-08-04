@@ -6,6 +6,7 @@ var camera
 
 const SPEED = 30
 const ACCELERATION = 2
+const INERTIA = 3
 
 onready var smokeParticles = get_node("Armature001/Skeleton/BodyBone/CPUParticles")
 onready var animationTree = get_node("AnimationTree")
@@ -26,6 +27,7 @@ func _physics_process(delta):
 		dir += camera.basis[0]
 	dir.y = 0
 	dir = dir.normalized()
+	velocity.y += gravity * delta
 	var hv = velocity
 	hv.y = 0
 	
@@ -36,11 +38,26 @@ func _physics_process(delta):
 	velocity.x = hv.x
 	velocity.z = hv.z
 	
-	velocity = move_and_slide(velocity, Vector3.UP)
+	velocity = move_and_slide(velocity, Vector3.UP, false, 4, PI / 4, false)
+	
+	for i in get_slide_count() :
+		var collision = get_slide_collision(i)
+		if collision.collider.is_in_group("sheep") :
+			collision.collider.apply_central_impulse(-collision.normal * INERTIA)
+		elif collision.collider.is_in_group("rat") :
+			collision.collider.apply_central_impulse(-collision.normal * INERTIA * 10)
 	
 	# rotation
-	if velocity.x != 0 or velocity.z != 0 :
-		rotation.y = atan2(hv.x, hv.z)
+	if dir.x != 0 or dir.z != 0 :
+		for c in range(10) :
+			var targetRotation = atan2(hv.x, hv.z)
+			var diff = targetRotation - rotation.y
+			if diff < 0 :
+				diff += PI * 2
+			if diff < PI :
+				rotation.y += 0.01
+			else :
+				rotation.y -= 0.01
 	
 	# animation
 	var currentAnimation
