@@ -8,6 +8,7 @@ var currentAnimation
 const SPEED = 30
 const ACCELERATION = 2
 const INERTIA = 3
+const smokeResizeRation = 0.9
 
 onready var smokeParticles = get_node("Armature001/Skeleton/BodyBone/CPUParticles")
 onready var animationTree = get_node("AnimationTree")
@@ -22,13 +23,13 @@ func _physics_process(delta):
 	
 	# set up the xz plane movement (relevant to the camera)
 	var dir = Vector3()
-	if Input.is_key_pressed(KEY_W) : 
+	if Input.is_action_pressed("Up") : 
 		dir -= camera.basis[2]
-	if Input.is_key_pressed(KEY_S) : 
+	if Input.is_action_pressed("Down") : 
 		dir += camera.basis[2]
-	if Input.is_key_pressed(KEY_A) : 
+	if Input.is_action_pressed("Left") : 
 		dir -= camera.basis[0]
-	if Input.is_key_pressed(KEY_D) : 
+	if Input.is_action_pressed("Right") : 
 		dir += camera.basis[0]
 	dir.y = 0
 	dir = dir.normalized()
@@ -77,15 +78,18 @@ func _physics_process(delta):
 		smokeParticles.emitting = false
 	else :
 		smokeParticles.emitting = true
+	
 	#particles get smaller with time. WELL, THEY SHOULD!!!!!
-	var mesh = smokeParticles.mesh 
-	mesh.size -= Vector2(delta, delta)
+	#var mesh = smokeParticles.mesh 
+	#mesh.size -= Vector2(delta, delta)
 	
 	#ramming anim. does not work!! required a named node, but we are generating rats!
-	
-	var rat = get_tree().get_root().find_node("Rat?",true,false)
-	if !rat == null:
-		rat.connect("rathit",self,"ram")
+	#var rat = get_tree().get_root().find_node("Rat?",true,false)
+	#if !rat == null:
+	#	rat.connect("rathit",self,"ram")
 
-func ram():
-	currentAnimation = "BadHit"
+# close to rat
+func _on_Area_body_entered(body):
+	# play ramming animation if ram fast enough
+	if velocity.length() >= SPEED / 3 :
+		animationTree.set("parameters/my_one_shot/active",  true)
