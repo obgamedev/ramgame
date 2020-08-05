@@ -3,6 +3,7 @@ extends RigidBody
 var dir
 onready var TweenNode = get_node("Tween")
 onready var Smoked = get_node("Armature003/Skeleton/Cube009/CPUParticles")
+onready var DeathRattle = get_node("AudioStreamPlayer3D")
 var timer
 var timerducken
 signal rathit
@@ -28,6 +29,9 @@ func _on_Area_body_entered(body):
 	#now comes the death effects
 	Smoked.set_emitting(true)
 	#sound
+	if DeathRattle.is_playing() == false:
+		DeathRattle.play()
+	#sound done
 	get_node("AnimationPlayer").play("MiceCurled")
 	TweenNode.interpolate_property(self, "scale", null,  Vector3(3,3,3), 0.3, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 	TweenNode.start()

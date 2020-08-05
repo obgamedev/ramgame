@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/RatMaterial.tres" type="Material" id=1]
 [ext_resource path="res://assets/Material_002.material" type="Material" id=2]
 [ext_resource path="res://scripts/Rat.gd" type="Script" id=3]
 [ext_resource path="res://assets/WhiteParticles.tres" type="Material" id=4]
+[ext_resource path="res://sounds/mouse_squeek_inspector_j.ogg" type="AudioStream" id=5]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Cube.018"
@@ -384,4 +385,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74922, -0.221933 )
 shape = SubResource( 10 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 5 )
+attenuation_model = 1
+unit_db = 34.394
+unit_size = 13.6
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
