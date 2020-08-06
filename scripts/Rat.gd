@@ -41,6 +41,11 @@ func _on_Area_body_entered(body):
 	timer.connect("timeout",self,"_on_timer_timeout") 
 	add_child(timer) #to process
 	timer.start() #to start
+	
+	# disable collisions
+	get_node("Area/CollisionShape2").disabled = true
+	get_node("CollisionShape").disabled = true
+	
 	pass # Replace with function body.
 
 func _on_timer_timeout():

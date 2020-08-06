@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ram.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sheep.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fence.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/RatSpawner.gd" type="Script" id=6]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 20, 20, 20 )
@@ -49,8 +50,11 @@ material/0 = null
 
 [node name="RatSpawner" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96608, -44.0086 )
+script = ExtResource( 6 )
 
 [node name="Area" type="Area" parent="RatSpawner"]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="RatSpawner/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.37852 )
