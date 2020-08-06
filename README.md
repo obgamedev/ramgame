@@ -1,9 +1,9 @@
 A lowrezjam game
 
 Important facets for the general publics adoration:
--Short. Pick it up in 30 seconds. Fully playable in 10 minutes. (Skip level button? Make sure players get past the intro screen[VB]. Get testers!) Exported to HTML. Easy to run/light.
--Nice to play. Most early edges polished off(ram could feel funner to handle. nore drifting. screenshake. stomping noise/music). No annoying/frustrating pain points. (Rat juice. Tight game loop.)
--Looks nice and impresive. Tight integration of music with the game. The art is good already ;)
+- Short. Pick it up in 30 seconds. Fully playable in 10 minutes. (Skip level button? Make sure players get past the intro screen[VB]. Get testers!) Exported to HTML. Easy to run/light.
+- Nice to play. Most early edges polished off(ram could feel funner to handle. nore drifting. screenshake. stomping noise/music). No annoying/frustrating pain points. (Rat juice. Tight game loop.)
+- Looks nice and impresive. Tight integration of music with the game. The art is good already ;)
 
 Intro: being worked on
 Level 1: Introductory. Some story/poem about how its a nice lil farm in nice lil valley. Few secs to give the player a handle on the ram. Dang rats!
