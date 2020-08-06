@@ -5,7 +5,7 @@ var gravity = -9.8
 var camera
 var currentAnimation
 
-const SPEED = 30
+const SPEED = 50
 const ACCELERATION = 2
 const INERTIA = 3
 const smokeResizeRation = 0.9
@@ -89,7 +89,7 @@ func _physics_process(delta):
 	#	rat.connect("rathit",self,"ram")
 
 # close to rat
-func _on_Area_body_entered(body):
+func _on_Area_body_entered(_body):
 	# play ramming animation if ram fast enough
 	if velocity.length() >= SPEED / 3 :
 		animationTree.set("parameters/my_one_shot/active",  true)

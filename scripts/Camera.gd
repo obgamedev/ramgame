@@ -11,7 +11,7 @@ func _ready():
 	height = get_global_transform().origin.y
 	distance = (get_global_transform().origin - get_parent().get_global_transform().origin).length()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	# follow target node
 	var target = get_parent().get_global_transform().origin
