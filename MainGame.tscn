@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ram.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sheep.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fence.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Wolf.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 20, 20, 20 )
@@ -64,3 +65,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2612, 0.73873, -36.6705 )
 
 [node name="Rat3" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9899, 0.73873, -36.6705 )
+
+[node name="Spatial" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.0326, 0.167546, -31.2944 )
