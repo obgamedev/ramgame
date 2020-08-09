@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/eli music stream 8.6 - meandering chimes.ogg-b76b0550385f3ff085eeada3a584bed3.oggstr"
+
+[deps]
+
+source_file="res://sounds/eli music stream 8.6 - meandering chimes.ogg"
+dest_files=[ "res://.import/eli music stream 8.6 - meandering chimes.ogg-b76b0550385f3ff085eeada3a584bed3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
