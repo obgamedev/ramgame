@@ -917,7 +917,9 @@ nodes/my_one_shot/position = Vector2( 300, 180 )
 nodes/output/position = Vector2( 560, 140 )
 node_connections = [ "output", 0, "my_one_shot", "my_blend", 0, "Animation", "my_blend", 1, "Animation 2", "my_one_shot", 0, "my_blend", "my_one_shot", 1, "Animation 3" ]
 
-[node name="ram" type="KinematicBody"]
+[node name="ram" type="KinematicBody" groups=[
+"ram",
+]]
 collision_layer = 2
 collision_mask = 15
 script = ExtResource( 1 )
@@ -991,7 +993,7 @@ mesh = SubResource( 1 )
 material/0 = ExtResource( 3 )
 
 [node name="HedBone" type="BoneAttachment" parent="Armature001/Skeleton"]
-transform = Transform( -1, -3.91196e-07, 1.11582e-07, -2.47298e-07, 0.802386, 0.596805, -3.23e-07, 0.596805, -0.802385, -7.65864e-08, 3.62267, 1.31177 )
+transform = Transform( -1, -3.95134e-07, 1.14068e-07, -2.46263e-07, 0.797431, 0.60341, -3.29389e-07, 0.60341, -0.79743, -4.11267e-08, 3.31578, 1.32187 )
 bone_name = "head"
 
 [node name="CPUParticles" type="CPUParticles" parent="Armature001/Skeleton/HedBone"]
@@ -1023,7 +1025,7 @@ scale_amount = 0.4
 color = Color( 1, 0, 0, 1 )
 
 [node name="BodyBone" type="BoneAttachment" parent="Armature001/Skeleton"]
-transform = Transform( -1, -3.91196e-07, 1.11582e-07, -2.47298e-07, 0.802386, 0.596805, -3.23e-07, 0.596805, -0.802385, -7.65864e-08, 3.62267, 1.31177 )
+transform = Transform( -1, -3.95134e-07, 1.14068e-07, -2.46263e-07, 0.797431, 0.60341, -3.29389e-07, 0.60341, -0.79743, -4.11267e-08, 3.31578, 1.32187 )
 bone_name = "head"
 
 [node name="CPUParticles" type="CPUParticles" parent="Armature001/Skeleton/BodyBone"]

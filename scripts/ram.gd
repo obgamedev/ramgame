@@ -5,6 +5,8 @@ var gravity = -9.8
 var camera
 var currentAnimation
 
+signal shake
+
 const SPEED = 50
 const ACCELERATION = 2
 const INERTIA = 3
@@ -93,3 +95,4 @@ func _on_Area_body_entered(_body):
 	# play ramming animation if ram fast enough
 	if velocity.length() >= SPEED / 3 :
 		animationTree.set("parameters/my_one_shot/active",  true)
+		emit_signal("shake")
