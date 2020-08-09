@@ -3,7 +3,7 @@
 [ext_resource path="res://screens/EightBit Atari-Written (1).ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/PoemScroller.gd" type="Script" id=2]
 [ext_resource path="res://screens/FadeOut.anim" type="Animation" id=3]
-[ext_resource path="res://sounds/eli music stream 8.6 - lil ditty chime.ogg" type="AudioStream" id=4]
+[ext_resource path="res://sounds/the pail is empty.ogg" type="AudioStream" id=4]
 [ext_resource path="res://screens/extraWavy.shader" type="Shader" id=5]
 [ext_resource path="res://screens/sheeply.png" type="Texture" id=6]
 
@@ -35,7 +35,7 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.803922, 0.619608, 0.619608, 1 )
+modulate = Color( 0.223529, 0.2, 0.513726, 1 )
 material = SubResource( 1 )
 position = Vector2( -1.73239, -2.51984 )
 scale = Vector2( 1.07354, 1.07354 )
@@ -49,8 +49,7 @@ margin_bottom = 64.0
 custom_fonts/normal_font = SubResource( 2 )
 visible_characters = 0
 percent_visible = 0.0
-text = "The Ram and the Herd live in the valley...
-"
+text = "The Pail is empty. Why will no one come?"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false

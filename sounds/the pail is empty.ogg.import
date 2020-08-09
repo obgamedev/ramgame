@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/the pail is empty.ogg-5ace7f3ac017cbefd0f6211e076f370e.oggstr"
+
+[deps]
+
+source_file="res://sounds/the pail is empty.ogg"
+dest_files=[ "res://.import/the pail is empty.ogg-5ace7f3ac017cbefd0f6211e076f370e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
