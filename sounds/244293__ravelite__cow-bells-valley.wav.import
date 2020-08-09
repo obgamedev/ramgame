@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/244293__ravelite__cow-bells-valley.wav-08a427c21b613b99a131e0a77565fe74.sample"
+
+[deps]
+
+source_file="res://sounds/244293__ravelite__cow-bells-valley.wav"
+dest_files=[ "res://.import/244293__ravelite__cow-bells-valley.wav-08a427c21b613b99a131e0a77565fe74.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

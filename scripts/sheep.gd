@@ -14,6 +14,8 @@ var health = MAX_HEALTH
 
 onready var animationTree = get_node("AnimationTree")
 onready var mesh = get_node("Armature002/Skeleton/Cube011")
+onready var HurtSound = $AudioHurt #for some reason, is late
+signal finished
 
 func _ready():
 	# set state and timer
@@ -54,6 +56,9 @@ func _physics_process(delta):
 	# blinking red (bug : effects all objects with the same material)
 	if state == HURT_STATE :
 		mesh.get_surface_material(0).albedo_color = Color.red if Engine.get_frames_drawn() % 2 == 0 else Color.white
+		# needs finished signal
+#		if _on_AudioHurt_finished() == true: 
+#			HurtSound.play()
 	
 	# decrement timer and check it
 	timeRemaining -= delta
@@ -82,3 +87,9 @@ func _physics_process(delta):
 func set_velocity() :
 	velocity = dir * SPEED
 	linear_velocity = Vector3(velocity.x, 0, velocity.y)
+
+
+func _on_AudioHurt_finished():
+	if state == HURT_STATE:
+		HurtSound.play()
+	pass # Replace with function body.
