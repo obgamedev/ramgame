@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://ram.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rat.tscn" type="PackedScene" id=2]
@@ -12,19 +12,29 @@
 [ext_resource path="res://assets/RainMaterial.tres" type="Material" id=10]
 [ext_resource path="res://assets/puddle.png" type="Texture" id=11]
 
-[sub_resource type="QuadMesh" id=3]
+[sub_resource type="QuadMesh" id=1]
 material = ExtResource( 10 )
-size = Vector2( 0.3, 1 )
+size = Vector2( 0.4, 1 )
 
-[sub_resource type="CubeMesh" id=1]
+[sub_resource type="CubeMesh" id=2]
 size = Vector3( 20, 20, 20 )
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 14.9371, 1, 2.84285 )
 
-[sub_resource type="PlaneMesh" id=5]
+[sub_resource type="PlaneMesh" id=4]
 material = ExtResource( 10 )
 size = Vector2( 1, 1 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0.845455 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="SpatialMaterial" id=9]
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 1.0
+
+[sub_resource type="PlaneMesh" id=8]
+material = SubResource( 9 )
 
 [sub_resource type="SpatialMaterial" id=6]
 flags_transparent = true
@@ -51,7 +61,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.6906, 0 )
 amount = 64
 local_coords = false
 draw_order = 2
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 emission_shape = 2
 emission_box_extents = Vector3( 25, 1, 25 )
 gravity = Vector3( 0, -980, 0 )
@@ -83,7 +93,7 @@ directional_shadow_split_3 = 1.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.90987, 52.9816 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Barn"]
-mesh = SubResource( 1 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="RatSpawner" type="Spatial" parent="."]
@@ -96,7 +106,7 @@ collision_mask = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="RatSpawner/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.37852 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Rat" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73873, -36.6705 )
@@ -113,16 +123,37 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2724, 3.39258, 5.80592 )
 [node name="RainSpalshes" type="CPUParticles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0132751, 0.0464668, -0.0137444 )
 amount = 128
+lifetime = 1.43
 speed_scale = 7.19
 randomness = 1.0
 lifetime_randomness = 1.0
 draw_order = 2
-mesh = SubResource( 5 )
+mesh = SubResource( 4 )
 emission_shape = 2
 emission_box_extents = Vector3( 40, 1, 40 )
 gravity = Vector3( 0, 9.8, 0 )
 damping = 19.35
 damping_random = 1.0
+scale_amount_random = 0.27
+scale_amount_curve = SubResource( 5 )
+
+[node name="RainSpalshesBig" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0132751, -0.58416, -0.0137444 )
+amount = 128
+lifetime = 2.72
+speed_scale = 7.19
+randomness = 1.0
+lifetime_randomness = 1.0
+draw_order = 2
+mesh = SubResource( 8 )
+emission_shape = 2
+emission_box_extents = Vector3( 40, 1, 40 )
+gravity = Vector3( 0, 0, 0 )
+damping = 19.35
+damping_random = 1.0
+scale_amount_random = 0.27
+scale_amount_curve = SubResource( 5 )
+hue_variation = 1.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 9 )
