@@ -9,25 +9,25 @@
 [ext_resource path="res://screens/intro/sheeps.png" type="Texture" id=7]
 [ext_resource path="res://screens/intro/ram.png" type="Texture" id=8]
 
-[sub_resource type="CanvasItemMaterial" id=11]
+[sub_resource type="CanvasItemMaterial" id=1]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 8
 font_data = ExtResource( 1 )
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 5 )
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 5 )
 
-[sub_resource type="CanvasItemMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 5 )
+
+[sub_resource type="CanvasItemMaterial" id=5]
 blend_mode = 3
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=6]
 
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
 width = 64
 
 [sub_resource type="Animation" id=8]
@@ -135,12 +135,12 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Node2D"]
-material = SubResource( 11 )
+material = SubResource( 1 )
 margin_left = -33.0
 margin_top = 37.2994
 margin_right = 44.0
 margin_bottom = 101.299
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
 visible_characters = 0
 percent_visible = 0.0
 text = "END
@@ -156,7 +156,7 @@ __meta__ = {
 [node name="Sprite2" type="Sprite" parent="Node2D"]
 visible = false
 modulate = Color( 0.803922, 0.619608, 0.619608, 1 )
-material = SubResource( 2 )
+material = SubResource( 3 )
 position = Vector2( -69.8189, -0.0318889 )
 scale = Vector2( 1.07354, 1.07354 )
 texture = ExtResource( 7 )
@@ -165,18 +165,18 @@ centered = false
 [node name="Sprite3" type="Sprite" parent="Node2D"]
 visible = false
 modulate = Color( 0.803922, 0.619608, 0.619608, 1 )
-material = SubResource( 3 )
+material = SubResource( 4 )
 position = Vector2( -69.8189, 7.0641 )
 scale = Vector2( 1.07354, 1.07354 )
 texture = ExtResource( 8 )
 centered = false
 
 [node name="Sprite4" type="Sprite" parent="Node2D"]
-material = SubResource( 4 )
+material = SubResource( 5 )
 position = Vector2( -44.9453, -22.6489 )
 rotation = 1.57079
 scale = Vector2( 1.06059, 91.7718 )
-texture = SubResource( 6 )
+texture = SubResource( 7 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 64.0
