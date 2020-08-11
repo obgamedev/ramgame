@@ -15,6 +15,7 @@ var health = MAX_HEALTH
 onready var animationTree = get_node("AnimationTree")
 onready var mesh = get_node("Armature002/Skeleton/Cube011")
 onready var HurtSound = $AudioHurt #for some reason, is late
+onready var healthBar : ProgressBar = get_node("Viewport/HealthBar")
 signal finished
 
 func _ready():
@@ -83,6 +84,13 @@ func _physics_process(delta):
 	
 	# animation
 	animationTree.set("parameters/my_blend/blend_amount",  linear_velocity.length() / SPEED)
+	
+	# healthBar
+	healthBar.set_value(health)
+	var r = range_lerp(health, 10, 100, 1, 0)
+	var g = range_lerp(health, 10, 100, 0, 1)
+	var styleBox = healthBar.get("custom_styles/fg")
+	styleBox.bg_color = Color(r, g, 0)
 
 func set_velocity() :
 	velocity = dir * SPEED
