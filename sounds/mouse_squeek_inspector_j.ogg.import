@@ -11,5 +11,5 @@ dest_files=[ "res://.import/mouse_squeek_inspector_j.ogg-fe5d03691430474c52bc83c
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0

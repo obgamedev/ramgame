@@ -1,7 +1,6 @@
 extends Spatial
 
 onready var poem = $AnimationPlayer
-onready var scroll = $AnimationPlayer3
 onready var FadeOut = $AnimationPlayer2
 onready var Noise = $AudioStreamPlayer
 var timer
@@ -43,8 +42,7 @@ func _ready():
 #		get_tree().change_scene("res://Poem1.tscn")
 	
 func _on_timer_timeout():
-	poem.play("PoemScroll")
-	scroll.play("introscroll")
+	poem.play("poemscroll")
 	timer.queue_free()
 	pass
 
