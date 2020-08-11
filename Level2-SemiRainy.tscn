@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://ram.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rat.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scripts/gameManager.gd" type="Script" id=8]
 [ext_resource path="res://rain_environment.tres" type="Environment" id=9]
 [ext_resource path="res://sounds/278198__arnaud-coutancier__thunderstorm-coming-with-birds-passing-car.wav" type="AudioStream" id=10]
+[ext_resource path="res://Barn.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 20, 20, 20 )
@@ -58,6 +59,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.90987, 52.9816 )
 [node name="MeshInstance" type="MeshInstance" parent="Barn"]
 mesh = SubResource( 1 )
 material/0 = null
+
+[node name="Cube021" parent="Barn" instance=ExtResource( 11 )]
 
 [node name="RatSpawner" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96608, -44.0086 )
