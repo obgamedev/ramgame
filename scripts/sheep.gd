@@ -23,6 +23,7 @@ func _ready():
 	rng.randomize()
 	state = IDLE_STATE
 	timeRemaining = rng.randf_range(0.5, 2)
+	healthBar.set("custom_styles/fg", healthBar.get("custom_styles/fg").duplicate())
 
 # hit by wolf
 func _on_Area_body_entered(body):
@@ -31,7 +32,7 @@ func _on_Area_body_entered(body):
 		return
 	if !body.is_in_group("wolf") :
 		return
-	health -= 40
+	health -= 33.4
 	if health <= 0 :
 		state = DEAD_STATE
 	else :
