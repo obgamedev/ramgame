@@ -31,7 +31,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[node name="Poem3" type="Spatial"]
+[node name="Spatial" type="Spatial"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

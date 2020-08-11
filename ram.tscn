@@ -915,11 +915,9 @@ nodes/my_blend/position = Vector2( 60, 140 )
 nodes/my_one_shot/node = SubResource( 19 )
 nodes/my_one_shot/position = Vector2( 300, 180 )
 nodes/output/position = Vector2( 560, 140 )
-node_connections = [ "output", 0, "my_one_shot", "my_one_shot", 0, "my_blend", "my_one_shot", 1, "Animation 3", "my_blend", 0, "Animation", "my_blend", 1, "Animation 2" ]
+node_connections = [ "output", 0, "my_one_shot", "my_blend", 0, "Animation", "my_blend", 1, "Animation 2", "my_one_shot", 0, "my_blend", "my_one_shot", 1, "Animation 3" ]
 
-[node name="ram" type="KinematicBody" groups=[
-"ram",
-]]
+[node name="ram" type="KinematicBody"]
 collision_layer = 2
 collision_mask = 15
 script = ExtResource( 1 )
@@ -936,7 +934,7 @@ bones/1/name = "head"
 bones/1/parent = 0
 bones/1/rest = Transform( -1, -6.97154e-07, -3.62206e-07, 7.25316e-07, -0.642098, -0.766623, 3.01883e-07, -0.766623, 0.642097, -5.36984e-07, -0.876098, -2.81869 )
 bones/1/enabled = true
-bones/1/bound_children = [  ]
+bones/1/bound_children = [ NodePath("HedBone"), NodePath("BodyBone") ]
 bones/2/name = "Bone.002_L.001"
 bones/2/parent = 1
 bones/2/rest = Transform( -0.715999, 0.146647, 0.682524, 0.362483, 0.913656, 0.183953, -0.596616, 0.379114, -0.707334, -1.19835, -0.131871, -0.238725 )
@@ -993,7 +991,7 @@ mesh = SubResource( 1 )
 material/0 = ExtResource( 3 )
 
 [node name="HedBone" type="BoneAttachment" parent="Armature001/Skeleton"]
-transform = Transform( -1, -3.94938e-07, 1.13945e-07, -2.46316e-07, 0.797679, 0.603082, -3.29071e-07, 0.603082, -0.797678, -4.65682e-08, 3.32177, 1.32132 )
+transform = Transform( -1, -3.91196e-07, 1.11582e-07, -2.47298e-07, 0.802386, 0.596805, -3.23e-07, 0.596805, -0.802385, -7.65864e-08, 3.62267, 1.31177 )
 bone_name = "head"
 
 [node name="CPUParticles" type="CPUParticles" parent="Armature001/Skeleton/HedBone"]
@@ -1025,7 +1023,7 @@ scale_amount = 0.4
 color = Color( 1, 0, 0, 1 )
 
 [node name="BodyBone" type="BoneAttachment" parent="Armature001/Skeleton"]
-transform = Transform( -1, -3.94938e-07, 1.13945e-07, -2.46316e-07, 0.797679, 0.603082, -3.29071e-07, 0.603082, -0.797678, -4.65682e-08, 3.32177, 1.32132 )
+transform = Transform( -1, -3.91196e-07, 1.11582e-07, -2.47298e-07, 0.802386, 0.596805, -3.23e-07, 0.596805, -0.802385, -7.65864e-08, 3.62267, 1.31177 )
 bone_name = "head"
 
 [node name="CPUParticles" type="CPUParticles" parent="Armature001/Skeleton/BodyBone"]
