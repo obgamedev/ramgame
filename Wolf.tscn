@@ -2036,7 +2036,7 @@ animation = "WolfRun"
 [sub_resource type="AnimationNodeOneShot" id=19]
 
 [sub_resource type="AnimationNodeBlendTree" id=20]
-graph_offset = Vector2( -411, 121.75 )
+graph_offset = Vector2( -800, -16 )
 nodes/Animation/node = SubResource( 18 )
 nodes/Animation/position = Vector2( -120, 100 )
 "nodes/Animation 2/node" = SubResource( 17 )

@@ -6,8 +6,8 @@
 [ext_resource path="res://ground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fence.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/RatSpawner.gd" type="Script" id=6]
-[ext_resource path="res://Wolf.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/gameManager.gd" type="Script" id=8]
+[ext_resource path="res://sounds/244293__ravelite__cow-bells-valley.wav" type="AudioStream" id=9]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 20, 20, 20 )
@@ -20,6 +20,12 @@ script = ExtResource( 8 )
 
 [node name="ram" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="ram"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+stream = ExtResource( 9 )
+unit_db = 21.747
+autoplay = true
 
 [node name="sheep" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.327581, 0, 0.944823, 0, 1, 0, -0.944823, 0, -0.327581, 5.08847, 1, 15.8836 )
@@ -71,6 +77,3 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2612, 0.73873, -36.6705 )
 
 [node name="Rat3" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9899, 0.73873, -36.6705 )
-
-[node name="Wolf" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2724, 3.39258, 5.80592 )

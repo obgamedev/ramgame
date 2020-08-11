@@ -5,6 +5,9 @@ var gravity = -9.8
 var camera
 var currentAnimation
 
+signal shake
+signal slight_shake
+
 const SPEED = 50
 const ACCELERATION = 2
 const INERTIA = 3
@@ -52,6 +55,8 @@ func _physics_process(delta):
 			collision.collider.apply_central_impulse(-collision.normal * INERTIA)
 		elif collision.collider.is_in_group("rat") :
 			collision.collider.apply_central_impulse(-collision.normal * INERTIA * 10)
+		elif collision.collider.is_in_group("wolf") :
+			emit_signal("shake")
 	
 	# rotation
 	if dir.x != 0 or dir.z != 0 :
@@ -78,6 +83,7 @@ func _physics_process(delta):
 		smokeParticles.emitting = false
 	else :
 		smokeParticles.emitting = true
+		emit_signal("slight_shake")
 	
 	#particles get smaller with time. WELL, THEY SHOULD!!!!!
 	#var mesh = smokeParticles.mesh 

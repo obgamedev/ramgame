@@ -7,6 +7,7 @@ sky_horizon_color = Color( 1, 0.498039, 0, 1 )
 [resource]
 background_mode = 2
 background_sky = SubResource( 1 )
+background_sky_custom_fov = 98.2
 fog_enabled = true
 fog_color = Color( 0.94902, 0.792157, 0.376471, 1 )
 fog_depth_begin = 51.2

@@ -8,6 +8,8 @@ var nutimer
 var soundtimer
 signal finished
 
+var flag = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timer = Timer.new()
@@ -27,6 +29,19 @@ func _ready():
 	add_child(soundtimer) #to process
 	soundtimer.start() #to start
 	soundtimer.emit_signal("finished", self)
+
+func _process(delta):
+	# fading started
+	if FadeOut.is_playing() :
+		flag = true
+	
+	# fading finished
+	if flag and !FadeOut.is_playing() :
+		var sceneName = get_tree().get_current_scene().get_name()
+		if sceneName == "Poem1" :
+			get_tree().change_scene("res://MainGame.tscn")
+		elif sceneName == "Poem3" :
+			get_tree().change_scene("res://RainLevel.tscn")
 
 func _on_timer_timeout():
 	Poetry.play("PoemScroll")
