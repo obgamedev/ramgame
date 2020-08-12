@@ -901,7 +901,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="ViewportTexture" id=20]
+[sub_resource type="ViewportTexture" id=17]
 viewport_path = NodePath("Viewport")
 
 [sub_resource type="StyleBoxFlat" id=18]
@@ -1051,7 +1051,7 @@ pitch_scale = 1.04
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.97397, 0.490207 )
 pixel_size = 0.1
 billboard = 1
-texture = SubResource( 20 )
+texture = SubResource( 17 )
 
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 66, 16 )

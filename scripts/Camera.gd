@@ -36,6 +36,9 @@ func _physics_process(delta):
 	
 	pos = target + offset
 	
+	shakeOffset = Vector3()
+	slightShakeOffset = Vector3()
+	
 	if shakeTimeRemaining > 0 :
 		shakeTimeRemaining -= delta
 		rng.randomize()
