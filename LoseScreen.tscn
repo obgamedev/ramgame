@@ -9,31 +9,31 @@
 [ext_resource path="res://screens/intro/sheeps.png" type="Texture" id=7]
 [ext_resource path="res://screens/intro/ram.png" type="Texture" id=8]
 
-[sub_resource type="CanvasItemMaterial" id=1]
-
-[sub_resource type="DynamicFont" id=2]
-size = 8
-font_data = ExtResource( 1 )
-
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 5 )
 
-[sub_resource type="CanvasItemMaterial" id=5]
+[sub_resource type="CanvasItemMaterial" id=3]
 blend_mode = 3
 
-[sub_resource type="Gradient" id=6]
+[sub_resource type="Gradient" id=4]
 
-[sub_resource type="GradientTexture" id=7]
-gradient = SubResource( 6 )
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
 width = 64
+
+[sub_resource type="CanvasItemMaterial" id=6]
+
+[sub_resource type="DynamicFont" id=7]
+size = 8
+font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=8]
 length = 3.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Node2D/RichTextLabel:visible_characters")
+tracks/0/path = NodePath("Camera2D/RichTextLabel:visible_characters")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -45,7 +45,7 @@ tracks/0/keys = {
 "values": [  ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Node2D/RichTextLabel:percent_visible")
+tracks/1/path = NodePath("Camera2D/RichTextLabel:percent_visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -78,7 +78,7 @@ tracks/0/path = NodePath("Node2D:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
 "times": PoolRealArray( 0, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -98,23 +98,35 @@ tracks/1/keys = {
 "values": [ Vector2( -69.8189, 0.715045 ), Vector2( -69.8189, 7.0641 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Node2D/RichTextLabel:rect_position")
+tracks/2/path = NodePath("Camera2D/RichTextLabel:rect_position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/keys = {
 "times": PoolRealArray( 0, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -33, -10.466 ), Vector2( -33, 37.2994 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Camera2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 30.9543, 46.2331 ), Vector2( 31.0124, 115.942 ) ]
+}
 
 [node name="Poem1" type="Spatial"]
 script = ExtResource( 2 )
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2( 31.0124, -30.8681 )
+position = Vector2( 31.0124, 45.8977 )
 scale = Vector2( 0.843381, 0.843381 )
 
 [node name="Sprite" type="Sprite" parent="Node2D"]
@@ -134,29 +146,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Node2D"]
-material = SubResource( 1 )
-margin_left = -33.0
-margin_top = 37.2994
-margin_right = 44.0
-margin_bottom = 101.299
-custom_fonts/normal_font = SubResource( 2 )
-visible_characters = 0
-percent_visible = 0.0
-text = "END
-
-a game by
-ob - code
-mono- art"
-scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Sprite2" type="Sprite" parent="Node2D"]
 visible = false
 modulate = Color( 0.803922, 0.619608, 0.619608, 1 )
-material = SubResource( 3 )
+material = SubResource( 1 )
 position = Vector2( -69.8189, -0.0318889 )
 scale = Vector2( 1.07354, 1.07354 )
 texture = ExtResource( 7 )
@@ -165,18 +158,43 @@ centered = false
 [node name="Sprite3" type="Sprite" parent="Node2D"]
 visible = false
 modulate = Color( 0.803922, 0.619608, 0.619608, 1 )
-material = SubResource( 4 )
-position = Vector2( -69.8189, 7.0641 )
+material = SubResource( 2 )
+position = Vector2( -69.8189, 0.715045 )
 scale = Vector2( 1.07354, 1.07354 )
 texture = ExtResource( 8 )
 centered = false
 
 [node name="Sprite4" type="Sprite" parent="Node2D"]
-material = SubResource( 5 )
+material = SubResource( 3 )
 position = Vector2( -44.9453, -22.6489 )
 rotation = 1.57079
 scale = Vector2( 1.06059, 91.7718 )
-texture = SubResource( 7 )
+texture = SubResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 30.9543, 46.2331 )
+scale = Vector2( 0.843381, 0.843381 )
+current = true
+smoothing_enabled = true
+smoothing_speed = 20.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D"]
+material = SubResource( 6 )
+margin_left = -35.0
+margin_top = -36.0
+margin_right = 42.0
+margin_bottom = 42.0
+custom_fonts/normal_font = SubResource( 7 )
+text = "END
+ob  -code
+mono -art
+music by:
+zismo
+& shauing"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 64.0
