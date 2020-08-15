@@ -13,9 +13,18 @@ var health = MAX_HEALTH
 var state = HUNT_STATE
 var timeRemaining = 0
 var hitVelocity
+var hitByRam = false
 
 onready var animationTree = get_node("AnimationTree")
 onready var mesh = get_node("wolf/Armature007/Skeleton/Cube015")
+onready var ram = get_node("../ram")
+
+func _ready():
+	ram.connect("shake", self, "_hit_by_ram")
+
+func _hit_by_ram() :
+	if state != HURT_STATE : 
+		hitByRam = true
 
 func _physics_process(delta):
 	
@@ -55,8 +64,16 @@ func _physics_process(delta):
 			if collision.collider.is_in_group("ram") :
 				hitVelocity = collision.normal
 				state = HURT_STATE
-				timeRemaining = 0.5
+				timeRemaining = 0.2
+				hitByRam = false
 				return
+		
+		if hitByRam :
+			hitVelocity = (global_transform.origin - ram.global_transform.origin).normalized()
+			hitByRam = false
+			state = HURT_STATE
+			timeRemaining = 0.5
+			return
 		
 		# attack animation
 		if distance.length() < 13.5 && !flag :
