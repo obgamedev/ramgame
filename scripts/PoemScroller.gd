@@ -40,6 +40,8 @@ func _process(delta):
 		var sceneName = get_tree().get_current_scene().get_name()
 		if sceneName == "Poem1" :
 			get_tree().change_scene("res://MainGame.tscn")
+		elif sceneName == "Poem2" :
+			get_tree().change_scene("res://Level2-SemiRainy.tscn")
 		elif sceneName == "Poem3" :
 			get_tree().change_scene("res://RainLevel.tscn")
 

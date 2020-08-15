@@ -1,12 +1,23 @@
 extends Node2D
 
+var displayTime = 3
+var elapsedTime = 0
+
 onready var Barn = $Sprite/Barn
 onready var Rats = $Sprite/Rats
 onready var Wolvs = $Sprite/Wolvs
+
 func _ready():
-	pass # Replace with function body.
+	Barn.text = str(Global.barnPercentage)
+	Rats.text = str(Global.ratCount)
+	Wolvs.text = str(Global.wolfCount)
 
-#get the stored vars and put them in the boxes
-
-#func _process(delta):
-#	pass
+func _process(delta):
+	# trigger to go to next level
+	elapsedTime += delta
+	if elapsedTime > displayTime :
+		Global.currentLevel += 1
+		if Global.currentLevel == 2 :
+			get_tree().change_scene("res://Level2-SemiRainy.tscn")
+		else :
+			get_tree().change_scene("res://RainLevel.tscn")
