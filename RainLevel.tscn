@@ -197,6 +197,6 @@ material/0 = null
 [node name="Timer" parent="." instance=ExtResource( 14 )]
 
 [node name="WolfSpawner" parent="." instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.0564, 4.90491, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.5264, 6.28525, 0 )
 
 [editable path="WolfSpawner"]

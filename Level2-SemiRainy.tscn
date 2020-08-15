@@ -94,6 +94,6 @@ environment = ExtResource( 9 )
 [node name="Timer" parent="." instance=ExtResource( 12 )]
 
 [node name="WolfSpawner" parent="." instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.6318, 7.47587, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.1892, 7.47587, 0 )
 
 [editable path="WolfSpawner"]
