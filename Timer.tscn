@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Font.tres" type="DynamicFont" id=1]
+
+[node name="Timer" type="Sprite"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_right = 0.215
+margin_left = 23.4868
+margin_top = -0.743258
+margin_right = 86.2718
+margin_bottom = 63.2567
+custom_fonts/normal_font = ExtResource( 1 )
+custom_colors/default_color = Color( 0.105882, 0.101961, 0.0666667, 0.717647 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
