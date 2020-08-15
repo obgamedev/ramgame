@@ -18,6 +18,8 @@ func _process(delta):
 	if elapsedTime > displayTime :
 		Global.currentLevel += 1
 		if Global.currentLevel == 2 :
-			get_tree().change_scene("res://Level2-SemiRainy.tscn")
+			get_tree().change_scene("res://Poem2.tscn")
+		elif Global.currentLevel == 3 :
+			get_tree().change_scene("res://Poem3.tscn")
 		else :
-			get_tree().change_scene("res://RainLevel.tscn")
+			get_tree().change_scene("res://LoseScreen.tscn")
