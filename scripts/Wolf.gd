@@ -23,7 +23,8 @@ func _ready():
 	ram.connect("shake", self, "_hit_by_ram")
 
 func _hit_by_ram() :
-	if state != HURT_STATE : 
+	print(global_transform.origin.distance_to(ram.global_transform.origin))
+	if state != HURT_STATE and global_transform.origin.distance_to(ram.global_transform.origin) < 10 :
 		hitByRam = true
 
 func _physics_process(delta):

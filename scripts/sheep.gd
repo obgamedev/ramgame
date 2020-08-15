@@ -28,7 +28,6 @@ func _ready():
 # hit by wolf
 func _on_Area_body_entered(body):
 	if state == HURT_STATE :
-		timeRemaining = 3
 		return
 	if !body.is_in_group("wolf") :
 		return
@@ -42,6 +41,7 @@ func _on_Area_body_entered(body):
 		rotation.y = atan2(dir.x, dir.y)
 		timeRemaining = 3
 		state = HURT_STATE
+		HurtSound.play()
 
 func _physics_process(delta):
 	
