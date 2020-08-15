@@ -11,7 +11,7 @@
 [ext_resource path="res://rain_environment.tres" type="Environment" id=9]
 [ext_resource path="res://assets/RainMaterial.tres" type="Material" id=10]
 [ext_resource path="res://assets/puddle.png" type="Texture" id=11]
-[ext_resource path="res://sounds/243629__lebaston100__heavy-rain.wav" type="AudioStream" id=12]
+[ext_resource path="res://sounds/rain.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Barn.tscn" type="PackedScene" id=13]
 
 [sub_resource type="QuadMesh" id=1]
