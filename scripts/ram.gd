@@ -18,11 +18,8 @@ onready var animationTree = get_node("AnimationTree")
 onready var Stomping = $AudioStreamPlayer3D
 
 func _physics_process(delta):
-	#CW: terrible coooode ahead! its a restart button
-	if Input.is_action_just_pressed("ui_end"):
-		get_tree().reload_current_scene()
-	#bad code ends here
-	
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
 	camera = get_node("Target/Camera").get_global_transform()
 	
 	# set up the xz plane movement (relevant to the camera)
