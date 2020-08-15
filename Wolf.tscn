@@ -1,8 +1,10 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/enemy.material" type="Material" id=1]
 [ext_resource path="res://assets/RatMaterial.tres" type="Material" id=2]
 [ext_resource path="res://scripts/Wolf.gd" type="Script" id=3]
+[ext_resource path="res://sounds/506514__matrixxx__monster-aah.wav" type="AudioStream" id=4]
+[ext_resource path="res://sounds/wolfgrowl.ogg" type="AudioStream" id=5]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 2.1094, 2.4653, 4.97216 )
@@ -21,6 +23,13 @@ surfaces/0 = {
 "skeleton_aabb": [ AABB( 0, 0, 0, -1, -1, -1 ), AABB( -2.0941, 0.962206, -2.6497, 4.1882, 3.32723, 4.59041 ), AABB( -2.0941, 0.429408, -2.59871, 4.1882, 3.86003, 5.65119 ), AABB( -2.0941, 0.429408, -0.372925, 4.1882, 4.17584, 5.0022 ), AABB( -1.65898, 1.74108, 2.70567, 3.31797, 2.86417, 4.41295 ), AABB( -1.65898, 1.74108, 2.73421, 3.31797, 2.10776, 4.22208 ), AABB( -0.295598, 1.74108, 2.70567, 1.95458, 3.72396, 2.58154 ), AABB( -1.65898, 1.74108, 2.70567, 1.95459, 3.72396, 2.58154 ), AABB( -2.0941, -0.0634766, -1.07949, 3.26676, 3.76794, 4.41942 ), AABB( -1.17266, -0.0634766, -1.07949, 3.26676, 3.76794, 4.41943 ), AABB( 0.427718, 1.40772, -2.5577, 0.923734, 1.77843, 1.29181 ), AABB( 0.427718, 0.260351, -2.58231, 0.923734, 2.67625, 1.31642 ), AABB( 0.427718, -0.0634766, -2.58231, 0.923734, 1.94601, 1.02479 ), AABB( -1.35145, 1.40772, -2.5577, 0.923734, 1.77843, 1.29181 ), AABB( -1.35145, 0.260351, -2.58231, 0.923734, 2.67625, 1.31642 ), AABB( -1.35145, -0.0634767, -2.58231, 0.923734, 1.94601, 1.02479 ), AABB( -0.652779, 2.32755, -4.57206, 1.30556, 1.16713, 1.9051 ), AABB( -0.652779, 2.32755, -5.49275, 1.30556, 1.16713, 2.08783 ), AABB( -0.652779, 2.32755, -6.12468, 1.30556, 1.16713, 1.55263 ) ],
 "vertex_count": 826
 }
+
+[sub_resource type="SpatialMaterial" id=22]
+params_cull_mode = 2
+params_billboard_mode = 2
+
+[sub_resource type="PlaneMesh" id=21]
+material = SubResource( 22 )
 
 [sub_resource type="Animation" id=3]
 length = 0.958333
@@ -2030,20 +2039,36 @@ tracks/19/keys = PoolRealArray( 0, 1, 0.157561, 2.38419e-07, 0.0299041, 9.1811e-
 [sub_resource type="AnimationNodeAnimation" id=17]
 animation = "WolfPounce-NotGoodAnimHonestly"
 
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "WolfThrown"
+
 [sub_resource type="AnimationNodeAnimation" id=18]
 animation = "WolfRun"
 
+[sub_resource type="AnimationNodeBlend2" id=25]
+
 [sub_resource type="AnimationNodeOneShot" id=19]
 
+[sub_resource type="AnimationNodeOneShot" id=24]
+filter_enabled = true
+filters = [ "Armature007/Skeleton:Bone.002", "Armature007/Skeleton:Bone.002_L.001", "Armature007/Skeleton:Bone.002_L.002", "Armature007/Skeleton:Bone.002_L.003", "Armature007/Skeleton:Bone.002_R.001", "Armature007/Skeleton:Bone.002_R.002", "Armature007/Skeleton:Bone.002_R.003", "Armature007/Skeleton:Bone.003", "Armature007/Skeleton:Bone.003_L.001", "Armature007/Skeleton:Bone.003_R.001", "Armature007/Skeleton:Bone.004", "Armature007/Skeleton:Bone.004_L.001", "Armature007/Skeleton:Bone.004_R.001", "Armature007/Skeleton:Bone.007", "Armature007/Skeleton:Bone.008", "Armature007/Skeleton:Bone.009", "Armature007/Skeleton:Bone.010", "Armature007/Skeleton:head" ]
+
 [sub_resource type="AnimationNodeBlendTree" id=20]
-graph_offset = Vector2( -800, -16 )
+graph_offset = Vector2( -176, 223 )
 nodes/Animation/node = SubResource( 18 )
 nodes/Animation/position = Vector2( -120, 100 )
 "nodes/Animation 2/node" = SubResource( 17 )
 "nodes/Animation 2/position" = Vector2( -320, 220 )
+"nodes/Animation 3/node" = SubResource( 23 )
+"nodes/Animation 3/position" = Vector2( 220, 340 )
+nodes/Blend2/node = SubResource( 25 )
+nodes/Blend2/position = Vector2( 623, 223 )
 nodes/my_one_shot/node = SubResource( 19 )
-nodes/my_one_shot/position = Vector2( 100, 180 )
-node_connections = [ "output", 0, "my_one_shot", "my_one_shot", 0, "Animation", "my_one_shot", 1, "Animation 2" ]
+nodes/my_one_shot/position = Vector2( 100, 120 )
+nodes/output/position = Vector2( 480, 140 )
+nodes/wolf_throw/node = SubResource( 24 )
+nodes/wolf_throw/position = Vector2( 300, 120 )
+node_connections = [ "output", 0, "Blend2", "my_one_shot", 0, "Animation", "my_one_shot", 1, "Animation 2", "Blend2", 0, "my_one_shot", "Blend2", 1, "Animation 3" ]
 
 [node name="Wolf" type="KinematicBody" groups=[
 "wolf",
@@ -2161,6 +2186,30 @@ bones/18/bound_children = [  ]
 mesh = SubResource( 2 )
 material/0 = ExtResource( 2 )
 
+[node name="CPUParticles" type="CPUParticles" parent="wolf/Armature007/Skeleton"]
+transform = Transform( 1, 0, 0, 0, -0.0360508, 0.99935, 0, -0.99935, -0.0360508, 0, 3.66214, 0 )
+emitting = false
+amount = 32
+lifetime = 1.11
+one_shot = true
+speed_scale = 3.75
+explosiveness = 0.33
+randomness = 0.51
+lifetime_randomness = 0.41
+local_coords = false
+mesh = SubResource( 21 )
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.98
+initial_velocity_random = 0.15
+angular_velocity = 72.73
+angular_velocity_random = 0.75
+linear_accel_random = 0.15
+radial_accel = 33.33
+radial_accel_random = 1.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wolf"]
 anims/BadHit = SubResource( 3 )
 anims/Dashing = SubResource( 4 )
@@ -2181,4 +2230,16 @@ anims/WolfThrown = SubResource( 16 )
 tree_root = SubResource( 20 )
 anim_player = NodePath("../wolf/AnimationPlayer")
 active = true
+parameters/Blend2/blend_amount = 1.0
 parameters/my_one_shot/active = false
+parameters/wolf_throw/active = false
+
+[node name="AmbientWolf" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 5 )
+unit_db = 24.854
+autoplay = true
+
+[node name="HurtWolf" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )
+unit_db = 32.621
+pitch_scale = 0.75

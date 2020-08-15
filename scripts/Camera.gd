@@ -4,11 +4,11 @@ var distance
 var height
 var shakeOffset = Vector3()
 var shakeTimeRemaining = 0
-var shakeIntensity = 0.3
+var shakeIntensity = 0.4 #0.3
 
 var slightShakeOffset = Vector3()
 var slightShakeTimeRemaining = 0
-var slightShakeIntensity = 0.13
+var slightShakeIntensity = 0.2#0.13
 
 var rng = RandomNumberGenerator.new()
 onready var ram = get_node("../..")

@@ -18,6 +18,7 @@ var hitByRam = false
 onready var animationTree = get_node("AnimationTree")
 onready var mesh = get_node("wolf/Armature007/Skeleton/Cube015")
 onready var ram = get_node("../ram")
+onready var WParticles = $wolf/Armature007/Skeleton/CPUParticles
 
 func _ready():
 	ram.connect("shake", self, "_hit_by_ram")
@@ -74,14 +75,19 @@ func _physics_process(delta):
 			hitByRam = false
 			state = HURT_STATE
 			timeRemaining = 0.5
+			#mono waz here
+			WParticles.set_emitting(true)
+			animationTree.set("parameters/wolf_throw/active",  true)
 			return
 		
 		# attack animation
 		if distance.length() < 13.5 && !flag :
 			flag = true
-			animationTree.set("parameters/my_one_shot/active",  true)
+			animationTree.set("parameters/Blend2/active",  1)
+			animationTree.set("parameters/Blend2/active",  0.5)
 		elif distance.length() >= 13.5 && flag :
 			flag = false
+			animationTree.set("parameters/Blend2/active",  0)
 
 func get_closest_sheep_coordinates():
 	var sheeps = get_tree().get_nodes_in_group("sheep")

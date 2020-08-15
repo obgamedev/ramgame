@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/stompede.ogg-a1b9c2b06d501766535e23f7967e29c8.oggstr"
+
+[deps]
+
+source_file="res://sounds/stompede.ogg"
+dest_files=[ "res://.import/stompede.ogg-a1b9c2b06d501766535e23f7967e29c8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
