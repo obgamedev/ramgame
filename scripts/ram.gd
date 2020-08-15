@@ -15,6 +15,7 @@ const smokeResizeRation = 0.9
 
 onready var smokeParticles = get_node("Armature001/Skeleton/BodyBone/CPUParticles")
 onready var animationTree = get_node("AnimationTree")
+onready var Stomping = $AudioStreamPlayer3D
 
 func _physics_process(delta):
 	#CW: terrible coooode ahead! its a restart button
@@ -48,6 +49,9 @@ func _physics_process(delta):
 	velocity.z = hv.z
 	
 	velocity = move_and_slide(velocity, Vector3.UP, false, 4, PI / 4, false)
+	#sound
+	print(velocity.x)
+	Stomping.unit_db = hv.length() - 1.0 #velocity.x + velocity.z+20.0 #hv.x+hv.z+30.0
 	
 	for i in get_slide_count() :
 		var collision = get_slide_collision(i)
