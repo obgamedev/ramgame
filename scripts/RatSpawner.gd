@@ -12,7 +12,7 @@ func _ready():
 	if sceneName == "Main":
 		LevelNumber = 3
 	elif sceneName == "SemiRainy":
-		LevelNumber = 5
+		LevelNumber = 10
 	elif sceneName == "RainLevel":
 		LevelNumber = 20
 

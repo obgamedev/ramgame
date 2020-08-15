@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://screens/EightBit Atari-Written (1).ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/EndScroller.gd" type="Script" id=2]
@@ -30,6 +30,33 @@ width = 64
 size = 8
 font_data = ExtResource( 1 )
 
+[sub_resource type="Animation" id=11]
+resource_name = "FadeOut (copy)"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -40.0 ]
+}
+
 [sub_resource type="Animation" id=8]
 length = 3.0
 tracks/0/type = "value"
@@ -59,7 +86,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=9]
 tracks/0/type = "value"
-tracks/0/path = NodePath("ColorRect:color")
+tracks/0/path = NodePath("Camera2D/ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -198,16 +225,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 64.0
-margin_bottom = 64.0
-color = Color( 0, 0, 0, 0 )
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+visible = false
+margin_left = -36.7026
+margin_top = -54.8188
+margin_right = 27.2974
+margin_bottom = 9.18124
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/FadeOut = ExtResource( 3 )
+"anims/FadeOut (copy)" = SubResource( 11 )
 anims/PoemScroll = SubResource( 8 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
