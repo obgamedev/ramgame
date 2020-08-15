@@ -31,6 +31,7 @@ func _physics_process(delta):
 			mesh.get_surface_material(0).albedo_color = Color.white
 			health -= 40
 			if health <= 0 :
+				Global.wolfCount += 1
 				queue_free()
 			state = HUNT_STATE
 	elif state == HUNT_STATE :

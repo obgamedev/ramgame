@@ -26,6 +26,8 @@ func _ready():
 
 
 func _on_Area_body_entered(body):
+	#increment counter
+	Global.ratCount += 1
 	#ram headbutt signal
 	emit_signal("rathit")
 	#the usual

@@ -50,7 +50,7 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity, Vector3.UP, false, 4, PI / 4, false)
 	#sound
-	print(velocity.x)
+	#print(velocity.x)
 	Stomping.unit_db = hv.length() - 1.0 #velocity.x + velocity.z+20.0 #hv.x+hv.z+30.0
 	
 	for i in get_slide_count() :
