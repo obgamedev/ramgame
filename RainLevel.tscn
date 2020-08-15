@@ -52,7 +52,7 @@ roughness = 0.41
 material = SubResource( 8 )
 size = Vector2( 16, 16 )
 
-[node name="Spatial" type="Spatial"]
+[node name="RainLevel" type="Spatial"]
 script = ExtResource( 8 )
 
 [node name="ram" parent="." instance=ExtResource( 1 )]
