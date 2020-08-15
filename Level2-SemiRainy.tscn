@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://ram.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rat.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://sounds/278198__arnaud-coutancier__thunderstorm-coming-with-birds-passing-car.wav" type="AudioStream" id=10]
 [ext_resource path="res://Barn.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Timer.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Ratholes.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Wolfhole.tscn" type="PackedScene" id=14]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 20, 20, 20 )
@@ -58,6 +60,7 @@ directional_shadow_split_3 = 1.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.90987, 52.9816 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Barn"]
+visible = false
 mesh = SubResource( 1 )
 material/0 = null
 
@@ -91,3 +94,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2724, 3.39258, 5.80592 )
 environment = ExtResource( 9 )
 
 [node name="Timer" parent="." instance=ExtResource( 12 )]
+
+[node name="Ratholes" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.78989, 0.0609703, -48.0841 )
+
+[node name="Wolfhole" parent="." instance=ExtResource( 14 )]
+transform = Transform( 0.505627, -0.862752, 0, 0.862752, 0.505627, 0, 0, 0, 1, 60.2558, 10.1257, 6.31041 )

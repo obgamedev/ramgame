@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/Material.material" type="Material" id=1]
 [ext_resource path="res://assets/barnMaterial.tres" type="Material" id=2]
@@ -23,6 +23,14 @@ surfaces/0 = {
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 16.868, 3.14647, 2.56963 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_unshaded = true
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 3 )
+size = Vector3( 12, 12, 2 )
 
 [node name="Cube021" type="MeshInstance"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -5.63473, -2.95617 )
@@ -50,4 +58,9 @@ margin_left = 45.0136
 margin_top = 57.7818
 margin_right = 63.0136
 margin_bottom = 62.7818
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35615e-07, 6.6418, 7.27059 )
+mesh = SubResource( 4 )
+material/0 = null
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

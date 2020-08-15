@@ -5,9 +5,9 @@
 [ext_resource path="res://screens/FadeOut.anim" type="Animation" id=3]
 [ext_resource path="res://sounds/cords.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/sheep.shader" type="Shader" id=5]
-[ext_resource path="res://screens/outro/outro.png" type="Texture" id=6]
+[ext_resource path="res://screens/outro/goodbg.png" type="Texture" id=6]
 [ext_resource path="res://screens/intro/sheeps.png" type="Texture" id=7]
-[ext_resource path="res://screens/intro/ram.png" type="Texture" id=8]
+[ext_resource path="res://screens/outro/good.png" type="Texture" id=8]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
@@ -81,7 +81,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1, 1.8, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 0.163, 0.163, 1.0 ]
+"values": [ 0.0, 0.172, 0.172, 1.0 ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -168,7 +168,7 @@ margin_left = -39.0
 margin_top = -55.0
 margin_right = 42.0
 margin_bottom = 5.0
-color = Color( 0.47451, 0.360784, 0.313726, 1 )
+color = Color( 0.517647, 0.27451, 0.278431, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -183,8 +183,6 @@ texture = ExtResource( 7 )
 centered = false
 
 [node name="Sprite3" type="Sprite" parent="Node2D"]
-visible = false
-modulate = Color( 0.803922, 0.619608, 0.619608, 1 )
 material = SubResource( 2 )
 position = Vector2( -69.8189, 0.715045 )
 scale = Vector2( 1.07354, 1.07354 )
@@ -212,9 +210,9 @@ margin_top = -36.0
 margin_right = 42.0
 margin_bottom = 42.0
 custom_fonts/normal_font = SubResource( 7 )
-visible_characters = 4
-percent_visible = 0.0900001
-text = "BAD END
+visible_characters = 15
+percent_visible = 0.31
+text = "GOOD END
 ob  -code
 mono -art
 music by:
@@ -231,7 +229,7 @@ margin_left = -36.7026
 margin_top = -54.8188
 margin_right = 27.2974
 margin_bottom = 9.18124
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -14,7 +14,7 @@ var flag = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timer = Timer.new()
-	timer.set_wait_time(0.5)
+	timer.set_wait_time(3)
 	timer.connect("timeout",self,"_on_timer_timeout") 
 	add_child(timer) #to process
 	timer.start() #to start
@@ -31,7 +31,9 @@ func _ready():
 	soundtimer.start() #to start
 	soundtimer.emit_signal("finished", self)
 
-#func _process(delta):
+func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
 #	# fading started
 #	if FadeOut.is_playing() :
 #		flag = true
@@ -44,11 +46,11 @@ func _ready():
 	
 func _on_timer_timeout():
 	poem.play("PoemScroll")
-	scroll.play("introscroll")
 	timer.queue_free()
 	pass
 
 func _on_soundtimer_timeout():
+	scroll.play("introscroll")
 	Noise.play()
 	soundtimer.queue_free()
 

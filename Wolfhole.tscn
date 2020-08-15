@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CylinderMesh" id=10]
+material = SubResource( 13 )
+top_radius = 5.0
+bottom_radius = 5.0
+
+[sub_resource type="PrismMesh" id=11]
+left_to_right = 0.7
+size = Vector3( 20, 20, 20 )
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 4.14869, 4.59307, 10.726 )
+
+[node name="Wolfhole" type="Spatial"]
+transform = Transform( 0.505627, -0.862752, 0, 0.862752, 0.505627, 0, 0, 0, 1, 60.5494, 10.8548, 0 )
+
+[node name="Wolfhole" type="MeshInstance" parent="."]
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.996297, -0.0859734, 0, 0.0859734, 0.996297, 0, 0, 0, 1, -15.2334, -1.8884, 0 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 0.554409, -0.832245, 0, 0.832245, 0.554409, 0, 0, 0, 1, -9.3585, -5.50841, 0 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance2"]
+transform = Transform( 0.876189, 0.481968, 0, -0.481968, 0.876189, 0, 0, 0, 1, 4.07388, 8.36861, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance2/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66893e-06, 0, 0 )
+shape = SubResource( 12 )
