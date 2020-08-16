@@ -32,8 +32,8 @@ func _ready():
 
 func _process(delta):
 	# fading started
-	if FadeOut.is_playing() :
-		flag = true
+#	if FadeOut.is_playing() :
+#		flag = true
 	
 	# fading finished
 	if flag and !FadeOut.is_playing() :

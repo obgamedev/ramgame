@@ -209,4 +209,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.0564, 4.90491, 0 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/killtherats = ExtResource( 18 )
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [editable path="WolfSpawner"]
