@@ -25,7 +25,6 @@ func _ready():
 	ram.connect("shake", self, "_hit_by_ram")
 
 func _hit_by_ram() :
-	print(global_transform.origin.distance_to(ram.global_transform.origin))
 	if state != HURT_STATE and global_transform.origin.distance_to(ram.global_transform.origin) < 10 :
 		hitByRam = true
 

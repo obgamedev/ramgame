@@ -14,9 +14,9 @@ func _ready():
 	Global.ratCount = 0
 	set_process(true)
 	if sceneName == "Main":
-		timePerLevel = 15
+		timePerLevel = 20
 	elif sceneName == "SemiRainy":
-		timePerLevel = 30
+		timePerLevel = 40
 	elif sceneName == "RainLevel":
 		timePerLevel = 60
 	descanim.play("killtherats")

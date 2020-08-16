@@ -11,7 +11,7 @@ margin_top = -0.566481
 margin_right = 87.8628
 margin_bottom = 63.4335
 custom_fonts/normal_font = ExtResource( 1 )
-custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/default_color = Color( 0.87451, 0.270588, 0.270588, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
