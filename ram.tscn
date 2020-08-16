@@ -917,7 +917,7 @@ nodes/my_blend/position = Vector2( 60, 140 )
 nodes/my_one_shot/node = SubResource( 19 )
 nodes/my_one_shot/position = Vector2( 300, 180 )
 nodes/output/position = Vector2( 560, 140 )
-node_connections = [ "output", 0, "my_one_shot", "my_one_shot", 0, "my_blend", "my_one_shot", 1, "Animation 3", "my_blend", 0, "Animation", "my_blend", 1, "Animation 2" ]
+node_connections = [ "output", 0, "my_one_shot", "my_blend", 0, "Animation", "my_blend", 1, "Animation 2", "my_one_shot", 0, "my_blend", "my_one_shot", 1, "Animation 3" ]
 
 [node name="ram" type="KinematicBody" groups=[
 "ram",
@@ -995,7 +995,7 @@ mesh = SubResource( 1 )
 material/0 = ExtResource( 3 )
 
 [node name="HedBone" type="BoneAttachment" parent="Armature001/Skeleton"]
-transform = Transform( -1, -3.97599e-07, 1.15615e-07, -2.49759e-07, 0.801898, 0.597462, -3.30261e-07, 0.597462, -0.801897, -9.13253e-08, 3.69847, 1.31322 )
+transform = Transform( -1, -3.90941e-07, 1.1142e-07, -2.47363e-07, 0.802707, 0.596374, -3.22584e-07, 0.596374, -0.802706, -7.56919e-08, 3.64752, 1.31105 )
 bone_name = "head"
 
 [node name="CPUParticles" type="CPUParticles" parent="Armature001/Skeleton/HedBone"]
@@ -1027,7 +1027,7 @@ scale_amount = 0.4
 color = Color( 1, 0, 0, 1 )
 
 [node name="BodyBone" type="BoneAttachment" parent="Armature001/Skeleton"]
-transform = Transform( -1, -3.97599e-07, 1.15615e-07, -2.49759e-07, 0.801898, 0.597462, -3.30261e-07, 0.597462, -0.801897, -9.13253e-08, 3.69847, 1.31322 )
+transform = Transform( -1, -3.90941e-07, 1.1142e-07, -2.47363e-07, 0.802707, 0.596374, -3.22584e-07, 0.596374, -0.802706, -7.56919e-08, 3.64752, 1.31105 )
 bone_name = "head"
 
 [node name="CPUParticles" type="CPUParticles" parent="Armature001/Skeleton/BodyBone"]
