@@ -20,6 +20,7 @@ func _ready():
 	elif sceneName == "RainLevel":
 		timePerLevel = 60
 	descanim.play("killtherats")
+	Global.prevBarnPercentage = Global.barnPercentage
 
 func _process(delta):
 	if get_tree().get_nodes_in_group("sheep").size() == 0 or get_node("Barn/Cube021").get("health") <= 0 :

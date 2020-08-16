@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://screens/EightBit Atari-Written (1).ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/EndScroller.gd" type="Script" id=2]
@@ -149,6 +149,21 @@ tracks/3/keys = {
 "values": [ Vector2( 30.9543, 46.2331 ), Vector2( 31.0124, 115.942 ) ]
 }
 
+[sub_resource type="Animation" id=12]
+resource_name = "my_anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
 [node name="Poem1" type="Spatial"]
 script = ExtResource( 2 )
 
@@ -231,7 +246,7 @@ margin_left = -36.7026
 margin_top = -54.8188
 margin_right = 27.2974
 margin_bottom = 9.18124
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -250,4 +265,17 @@ anims/introscroll = SubResource( 11 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -38.3304
+margin_top = -2.42509
+margin_right = 103.67
+margin_bottom = 163.575
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer4" type="AnimationPlayer" parent="."]
+anims/my_anim = SubResource( 12 )
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
