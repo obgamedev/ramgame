@@ -5,6 +5,8 @@ var timeElapsed = 0
 onready var sceneName = get_tree().get_current_scene().get_name()
 
 onready var timerTextLabel = get_node("Timer/RichTextLabel")
+onready var descanim = $AnimationPlayer
+
 
 func _ready():
 	get_node("Barn/Cube021").set("health", Global.barnPercentage)
@@ -17,6 +19,7 @@ func _ready():
 		timePerLevel = 30
 	elif sceneName == "RainLevel":
 		timePerLevel = 60
+	descanim.play("killtherats")
 
 func _process(delta):
 	if get_tree().get_nodes_in_group("sheep").size() == 0 or get_node("Barn/Cube021").get("health") <= 0 :

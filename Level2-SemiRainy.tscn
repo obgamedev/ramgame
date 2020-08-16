@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://ram.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Rat.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Timer.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Ratholes.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Wolfhole.tscn" type="PackedScene" id=14]
+[ext_resource path="res://screens/killtherats.tres" type="Animation" id=15]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 20, 20, 20 )
@@ -100,3 +101,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.78989, 0.0609703, -48.0841 
 
 [node name="Wolfhole" parent="." instance=ExtResource( 14 )]
 transform = Transform( 0.505627, -0.862752, 0, 0.862752, 0.505627, 0, 0, 0, 1, 60.2558, 10.1257, 6.31041 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 5.19384
+margin_top = 6.03323
+margin_right = 61.1938
+margin_bottom = 70.0332
+visible_characters = 0
+percent_visible = 0.0
+text = "   KILL
+   THE
+WOLVES"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/killtherats = ExtResource( 15 )

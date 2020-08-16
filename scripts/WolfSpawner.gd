@@ -14,7 +14,7 @@ func _ready():
 	elif sceneName == "SemiRainy":
 		LevelNumber = 1
 	elif sceneName == "RainLevel":
-		LevelNumber = 2
+		LevelNumber = 1
 
 func _process(_delta):
 	var numberOfWolves = get_tree().get_nodes_in_group("wolf").size()
