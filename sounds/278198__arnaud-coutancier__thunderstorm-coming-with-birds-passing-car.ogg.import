@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/278198__arnaud-coutancier__thunderstorm-coming-with-birds-passing-car.ogg-10fc93f1925f180e612ebc255bc77784.oggstr"
+
+[deps]
+
+source_file="res://sounds/278198__arnaud-coutancier__thunderstorm-coming-with-birds-passing-car.ogg"
+dest_files=[ "res://.import/278198__arnaud-coutancier__thunderstorm-coming-with-birds-passing-car.ogg-10fc93f1925f180e612ebc255bc77784.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1039,7 +1039,7 @@ playing = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 5 )
-unit_db = 57.476
+unit_db = 20.0
 autoplay = true
 
 [node name="AudioHurt" type="AudioStreamPlayer3D" parent="."]

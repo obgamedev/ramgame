@@ -12,9 +12,9 @@ func _ready():
 	if sceneName == "Main":
 		LevelNumber = 3
 	elif sceneName == "SemiRainy":
-		LevelNumber = 10
+		LevelNumber = 8
 	elif sceneName == "RainLevel":
-		LevelNumber = 20
+		LevelNumber = 16
 
 func _process(_delta):
 	var numberOfRats = get_tree().get_nodes_in_group("rat").size()

@@ -19,6 +19,7 @@ onready var animationTree = get_node("AnimationTree")
 onready var mesh = get_node("wolf/Armature007/Skeleton/Cube015")
 onready var ram = get_node("../ram")
 onready var WParticles = $wolf/Armature007/Skeleton/CPUParticles
+onready var DeathRattle = $HurtWolf
 
 func _ready():
 	ram.connect("shake", self, "_hit_by_ram")
@@ -31,6 +32,8 @@ func _hit_by_ram() :
 func _physics_process(delta):
 	
 	if state == HURT_STATE :
+		if !DeathRattle.is_playing():
+			DeathRattle.play()
 		mesh.get_surface_material(0).albedo_color = Color.red if Engine.get_frames_drawn() % 2 == 0 else Color.white
 		hitVelocity *= 0.9
 		velocity = hitVelocity * SPEED * 10
@@ -77,7 +80,7 @@ func _physics_process(delta):
 			timeRemaining = 0.5
 			#mono waz here
 			WParticles.set_emitting(true)
-			animationTree.set("parameters/wolf_throw/active",  true)
+#			animationTree.set("parameters/wolf_throw/active",  true)
 			return
 		
 		# attack animation

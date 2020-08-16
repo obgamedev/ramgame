@@ -2,8 +2,8 @@
 
 [ext_resource path="res://screens/EightBit Atari-Written (1).ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/EndScroller.gd" type="Script" id=2]
-[ext_resource path="res://screens/FadeOut.anim" type="Animation" id=3]
-[ext_resource path="res://sounds/cords.ogg" type="AudioStream" id=4]
+[ext_resource path="res://screens/FadeOutSum.anim" type="Animation" id=3]
+[ext_resource path="res://sounds/eli music stream 8.6 - meandering chimes.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/sheep.shader" type="Shader" id=5]
 [ext_resource path="res://screens/outro/goodbg.png" type="Texture" id=6]
 [ext_resource path="res://screens/intro/sheeps.png" type="Texture" id=7]
@@ -210,8 +210,8 @@ margin_top = -36.0
 margin_right = 42.0
 margin_bottom = 42.0
 custom_fonts/normal_font = SubResource( 7 )
-visible_characters = 15
-percent_visible = 0.31
+visible_characters = 0
+percent_visible = 0.0
 text = "GOOD END
 ob  -code
 mono -art
@@ -224,7 +224,6 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D"]
-visible = false
 margin_left = -36.7026
 margin_top = -54.8188
 margin_right = 27.2974

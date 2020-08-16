@@ -212,7 +212,7 @@ margin_top = -36.0
 margin_right = 42.0
 margin_bottom = 42.0
 custom_fonts/normal_font = SubResource( 7 )
-visible_characters = 4
+visible_characters = 0
 percent_visible = 0.0900001
 text = "BAD END
 ob  -code

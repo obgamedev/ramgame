@@ -11,5 +11,5 @@ dest_files=[ "res://.import/eli music stream 8.6 - phytorealism synth ditty.ogg-
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

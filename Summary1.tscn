@@ -1,28 +1,183 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scripts/summarySetter.gd" type="Script" id=2]
+[ext_resource path="res://screens/FadeOut.anim" type="Animation" id=3]
+[ext_resource path="res://sounds/eli music stream 8.6 - phytorealism synth ditty.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/new_shader.shader" type="Shader" id=5]
+[ext_resource path="res://screens/FadeOutSum.anim" type="Animation" id=6]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.238206, 0.339844, 0.153992, 1, 0.898438, 0.670291, 0.347443, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 70
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 5 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -40.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "summaryscroll"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/RichTextLabel2:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/Barn:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite/Rats:percent_visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite/Wolvs:percent_visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
 
 [node name="Spatial" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
+[node name="ColorRect2" type="Sprite" parent="Sprite"]
+position = Vector2( 70.8628, 69.2927 )
+rotation = -1.57079
+scale = Vector2( 1.06165, -75.5863 )
+texture = SubResource( 2 )
+centered = false
+
+[node name="ColorRect" type="Sprite" parent="Sprite"]
+material = SubResource( 3 )
+position = Vector2( -5.72933, -4.52143 )
+rotation = 1.57079
+scale = Vector2( 1.06165, -9.90754 )
+texture = SubResource( 2 )
+centered = false
+
+[node name="ColorRect3" type="Sprite" parent="Sprite"]
+material = SubResource( 3 )
+position = Vector2( 7.77067, -4.52143 )
+rotation = 1.57079
+scale = Vector2( 1.06165, -9.90754 )
+texture = SubResource( 2 )
+centered = false
+
+[node name="ColorRect4" type="Sprite" parent="Sprite"]
+material = SubResource( 3 )
+position = Vector2( 23.2707, -4.52143 )
+rotation = 1.57079
+scale = Vector2( 1.06165, -9.90754 )
+texture = SubResource( 2 )
+centered = false
+
+[node name="ColorRect5" type="Sprite" parent="Sprite"]
+material = SubResource( 3 )
+position = Vector2( 43.6457, -4.52143 )
+rotation = 1.57079
+scale = Vector2( 1.06165, -9.90754 )
+texture = SubResource( 2 )
+centered = false
+
+[node name="ColorRect6" type="Sprite" parent="Sprite"]
+material = SubResource( 3 )
+position = Vector2( 59.3957, -4.52143 )
+rotation = 1.57079
+scale = Vector2( 1.06165, -9.90754 )
+texture = SubResource( 2 )
+centered = false
+
 [node name="RichTextLabel" type="RichTextLabel" parent="Sprite"]
 anchor_right = 0.419
 margin_right = 64.0
 margin_bottom = 64.0
 custom_fonts/normal_font = ExtResource( 1 )
+visible_characters = 0
+percent_visible = 0.0
 text = "SUMMARY"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Sprite"]
-margin_top = 13.0
+margin_top = 21.6621
 margin_right = 64.0
-margin_bottom = 64.0
+margin_bottom = 72.6621
 custom_fonts/normal_font = ExtResource( 1 )
+visible_characters = 0
+percent_visible = 0.0
 text = "Barn   %
 Rats 
 Wolvs"
@@ -31,12 +186,14 @@ __meta__ = {
 }
 
 [node name="Barn" type="RichTextLabel" parent="Sprite"]
-margin_left = 35.0
-margin_top = 13.0
-margin_right = 57.0
-margin_bottom = 25.0
+margin_left = 32.0865
+margin_top = 21.7945
+margin_right = 56.0865
+margin_bottom = 33.7945
 custom_fonts/normal_font = ExtResource( 1 )
-text = "25"
+visible_characters = 0
+percent_visible = 0.0
+text = "100"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -44,10 +201,12 @@ __meta__ = {
 
 [node name="Rats" type="RichTextLabel" parent="Sprite"]
 margin_left = 42.1557
-margin_top = 24.6456
+margin_top = 33.3077
 margin_right = 64.1557
-margin_bottom = 36.6456
+margin_bottom = 45.3077
 custom_fonts/normal_font = ExtResource( 1 )
+visible_characters = 0
+percent_visible = 0.0
 text = "10"
 scroll_active = false
 __meta__ = {
@@ -56,12 +215,38 @@ __meta__ = {
 
 [node name="Wolvs" type="RichTextLabel" parent="Sprite"]
 margin_left = 49.9771
-margin_top = 37.4136
+margin_top = 46.0757
 margin_right = 71.9771
-margin_bottom = 49.4136
+margin_bottom = 58.0757
 custom_fonts/normal_font = ExtResource( 1 )
+visible_characters = 0
+percent_visible = 0.0
 text = "3"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 65.0
+margin_bottom = 66.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeOut = ExtResource( 3 )
+anims/FadeOutSum = ExtResource( 6 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+playback_speed = 0.5
+anims/FadeOut = SubResource( 4 )
+anims/summaryscroll = SubResource( 5 )

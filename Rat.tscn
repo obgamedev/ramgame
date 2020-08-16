@@ -395,6 +395,6 @@ unit_size = 13.6
 
 [node name="AmbientRatNoise" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 6 )
-unit_db = 25.0
+unit_db = 15.0
 autoplay = true
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

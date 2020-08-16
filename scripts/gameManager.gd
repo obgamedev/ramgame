@@ -31,4 +31,7 @@ func _process(delta):
 	
 	# trigger to go to the summery screen
 	if timeLeft <= 0 :
-		get_tree().change_scene("res://Summary1.tscn")
+		if sceneName == "RainLevel":
+			get_tree().change_scene("res://WinScreen.tscn")
+		else:
+			get_tree().change_scene("res://Summary1.tscn")

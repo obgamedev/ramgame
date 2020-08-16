@@ -55,9 +55,10 @@ func _on_soundtimer_timeout():
 	soundtimer.queue_free()
 
 func _on_nutimer_timeout():
-	FadeOut.play("FadeOut")
 	nutimer.queue_free()
-#
-#func _on_AudioStreamPlayer_finished():
-#	Noise.volume_db(0)
-#	pass # Replace with function body.
+
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed:
+			FadeOut.play("FadeOut")
+		flag = true
