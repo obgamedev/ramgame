@@ -15,7 +15,7 @@ var health = MAX_HEALTH
 onready var animationTree = get_node("AnimationTree")
 onready var mesh = get_node("Armature002/Skeleton/Cube011")
 onready var HurtSound = $AudioHurt #for some reason, is late
-onready var healthBar : ProgressBar = get_node("Viewport/HealthBar")
+onready var healthBar : ProgressBar = get_node("HealthBar3d/Viewport/HealthBar")
 signal finished
 
 func _ready():
@@ -28,6 +28,7 @@ func _ready():
 # hit by wolf
 func _on_Area_body_entered(body):
 	if state == HURT_STATE :
+		timeRemaining = 1
 		return
 	if !body.is_in_group("wolf") :
 		return
